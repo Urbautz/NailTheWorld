@@ -7,9 +7,10 @@
 	<title>Nailed it!</title>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
 </head>
 
-<body>
+<body onload="load();">
 
 <!-- header -->
 <header>
@@ -32,8 +33,12 @@
           <label> N/tick</label>
         </li>
       <ul>
+      <ul class="buttons">
+        <li><button id="press1" onclick="makeNail(1n);">Press a Nail</button></li>
+        <li><button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button></li>
+      </ul>  
     </div>
-    <div class="sec">
+    <div class="sec" style="visibility: hidden;">
       <h2>Smelting</h2>
     </div>
   </div>
@@ -41,15 +46,15 @@
     <div class="sec">
       <h2>Storage</h2>
     </div>
-    <div class="sec">
+    <div class="sec" style="visibility: hidden;" >
       <h2>Power</h2>
     </div>
   </div>
   <div class="col">
-    <div class="sec">
+    <div class="sec" style="visibility: hidden;">
       <h2>Sales</h2>
     </div>
-    <div class="sec">
+    <div class="sec" style="visibility: hidden;">
       <h2>Research</h2>
     </div>
   </div>
