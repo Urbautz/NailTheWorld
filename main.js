@@ -25,10 +25,16 @@ function load() {
   updateVisibility();
 }
 
+function save() {
+    document.cookie = ("save="+JSON.stringify(save));
+    updateVisibility();
+}
+
 function makeNail(count=0) {
   save.Nails += BigInt(count) + save.NailsPerTick;
   document.getElementById('NailsTotal').innerHTML = format(save.Nails);
-  updateVisibility();
+  save();
+
 }
 
 function updateVisibility(){
