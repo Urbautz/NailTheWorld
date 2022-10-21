@@ -5,8 +5,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width = device-width, initial-scale = 1.0" />  
 	<title>Nailed it!</title>
-	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="style.css">
+  <script src="helpers.js"></script>
+  <script src="calc.js"></script>
   <script src="main.js"></script>
 </head>
 
@@ -25,17 +26,19 @@
       <h2>Nails</h2>
       <ul>
         <li>
-          <span class="bigint" id="NailsTotal">17.128.477.999.999.999.111.222.333.444</span>
+          <span class="bigint" id="NailsTotal">0</span>
           <label>Nails</label>
         </li>
         <li>
-          <span class="bigint" id="NailsProduction">3</span>
+          <span class="bigint" id="NailsProduction">0</span>
           <label> N/tick</label>
         </li>
       <ul>
       <ul class="buttons">
-        <li><button id="press1" onclick="makeNail(1n);">Press a Nail</button></li>
-        <li><button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button></li>
+        <li>
+          <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
+          <button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button>
+        </li>
       </ul>  
     </div>
     <div class="sec" style="visibility: hidden;">
@@ -63,8 +66,10 @@
      
      
 <footer>
-<div>Photo by <a href="https://unsplash.com/es/@surya1213?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Surya Prakash</a> on <a href="https://unsplash.com/s/photos/steel-nails?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</div><div>XXXX IMPRESSUM XXXXX</div>
+  <div><button onclick="DeleteSave()">Delete Save</button></div>
+  <div>Photo by <a href="https://unsplash.com/es/@surya1213?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Surya Prakash</a> on <a href="https://unsplash.com/s/photos/steel-nails?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+</div>
+<div>XXXX IMPRESSUM XXXXX</div>
 </footer>
 
 </body>

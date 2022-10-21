@@ -16,31 +16,37 @@ let save = {
   StorageWarehouseMedium: 0n
 };
 
-function format(value){
-  return value;
-}
-
 function load() {
-  document.getElementById('NailsTotal').innerHTML = 0; 
+  updateView();
+  let stringed = localStorage.getItem('save');
+  if(stringed != null )
+  {
+    let backAgain = null;
+    backAgain = JSON.parse(stringed, (key, value) => {
+    if (typeof value === "string" && /^\d+n$/.test(value)) {
+      return BigInt(value.substr(0, value.length - 1));
+      }
+      return value;
+    });
+    if(backAgain != null) save = backAgain;
+    console.log("save loaded");
+  }
+  updateView();
   updateVisibility();
 }
 
-function save() {
-    document.cookie = ("save="+JSON.stringify(save));
-    updateVisibility();
+function doSave() {
+  let stringed = JSON.stringify(save, (key, value) =>
+  typeof value === "bigint" ? value.toString() + "n" : value
+  );
+  window.localStorage.setItem('save', stringed);
+  updateVisibility();
+  updateView();
 }
 
-function makeNail(count=0) {
-  save.Nails += BigInt(count) + save.NailsPerTick;
-  document.getElementById('NailsTotal').innerHTML = format(save.Nails);
-  save();
-
-}
-
-function updateVisibility(){
-  limits.forEach(limit => {
-    if(limit.LimitLow < save.Nails ) {
-      document.getElementById(limit.Show).style.visibility = "visible";
-    }
-  });
+function DeleteSave() {
+  if(window.confirm("Delete Save, are you sure?")){
+    localStorage.clear();
+    window.location.reload(false);
+  }
 }
