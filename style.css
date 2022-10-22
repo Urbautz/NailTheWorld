@@ -92,5 +92,6 @@ button {
   box-shadow: 2px 2px 2px #335599;
   border-color: #224477;
   border-radius: 5px;
+  border-width: thick;
   font-family: 'Consolas', 'Courier New', Courier, monospace;
 }
