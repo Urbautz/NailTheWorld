@@ -1,19 +1,13 @@
-// Settings object
-let settings = {
-  Language:"EN/US"
-};
 
-let limits = [
-  {LimitLow: 25n, Show:'press10'}, 
-  {LimitLow: 1000n, Show:'xzy'}
-]
 
 let save = {
   Nails: 0n,
   NailsPerTick: 0n,
   StorageGarage: 1n,
   StorageWarehouseSmall: 0n,
-  StorageWarehouseMedium: 0n
+  StorageWarehouseMedium: 0n,
+  NailsInStorage: 0n,
+  SteelbarsByK: 1000n
 };
 
 function load() {
@@ -29,6 +23,11 @@ function load() {
       return value;
     });
     if(backAgain != null) save = backAgain;
+    if(!save.hasOwnProperty('StorageGarage')) save.StorageGarage = 1n;
+    if(!save.hasOwnProperty('StorageWarehousSmall')) save.StorageWarehousSmall = 0n;
+    if(!save.hasOwnProperty('StorageWarehouseMedium')) save.StorageWarehouseMedium = 0n;
+    if(!save.hasOwnProperty('NailsInStorage')) save.NailsInStorage = 0n;
+    if(!save.hasOwnProperty('SteelbarsByK')) save.SteelbarsByK = 0n;
     console.log("save loaded");
   }
   updateView();

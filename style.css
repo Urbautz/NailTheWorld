@@ -64,8 +64,19 @@ div.sec {
 .bigint {
   border:0px;
   width: 80%;
+  height:100%;
   text-align: right;
   margin-right:12pt;
+  vertical-align: middle;
+}
+
+.int {
+  border:0px;
+  width: 40%;
+  height:100%;
+  text-align: right;
+  margin-right:12pt;
+  vertical-align: middle;
 }
 
 h2 {
@@ -86,12 +97,23 @@ ul li span {
 
 button {
   margin:4px;
-  padding:8px;
+  padding:4px;
   background-color: #335599;
   color:aliceblue;
   box-shadow: 2px 2px 2px #335599;
-  border-color: #224477;
-  border-radius: 5px;
-  border-width: thick;
+  border-color: #335599;
+  border-radius: 8px;
+  border-width: medium;
   font-family: 'Consolas', 'Courier New', Courier, monospace;
+}
+
+table, th, td {
+  border: 1px solid aliceblue;
+  box-shadow: 2px 2px 2px #335599;
+  border-collapse: collapse;
+  margin: 1px;
+  padding: 5px;
+  width:50%;
+  min-width:50px;
+  text-align:right;
 }
