@@ -50,36 +50,31 @@
 	  
     <div class="sec">
       <h2>Storage</h2>
-	  <ul>
-		<li id="StorageGarage">
+		<p id="StorageGarage">
 			<label id="StorageGarageCount">1</label>
 			<label>Garages</label>
-			<button id="buyGarage" onclick="buyGarage(1n);">Buy a Garage ($5000)</button>
-		</li>
-	  	
-		<li>
-			<table>
-				<tr>
-					<th>Type</th>
-					<th>Total</th>
-					<th>%</th>
-				</tr>
-				<tr>
-					<td>Nails</th>
-					<td id="NailsInStorage">0</td>
-					<td id="NailsInStoragePercent">0</td>
-				</tr>
-				<tr>
-					<td>Steel Bars</th>
-					<td id="Steelbars">0</td>
-					<td id="SteelbarsPercent">0</td>
-				</tr>
-				<tr>
-					<th colspan="3" id="StorageTotal">0</th>
-				</tr>
-			</table>
-		</li>
-	  </ul>
+			<button id="buyGarage" onclick="buyGarage(1n);" title="$5000">Buy a Garage</button>
+	  </p>
+		<table>
+			<tr>
+				<th>Type</th>
+				<th>Total</th>
+				<th>%</th>
+			</tr>
+			<tr>
+				<td>Nails</th>
+				<td id="NailsInStorage">0</td>
+				<td id="NailsInStoragePercent">0</td>
+			</tr>
+			<tr>
+				<td>Steel Bars</th>
+				<td id="Steelbars">0</td>
+				<td id="SteelbarsPercent">0</td>
+			</tr>
+			<tr>
+				<th colspan="3" id="StorageTotal">0</th>
+			</tr>
+		</table>
     </div>
 	  
     <div class="sec" class="Power" style="visibility: hidden;" >

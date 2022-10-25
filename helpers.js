@@ -21,11 +21,15 @@ function updateVisibility(){
 }
 
 function updateView(){
-  document.getElementById('NailsTotal').innerHTML =         formatBigInt(save.Nails);
-  document.getElementById('NailsProduction').innerHTML =    formatBigInt(save.NailsPerTick);
-  document.getElementById('StorageGarageCount').innerHTML = formatBigInt(save.StorageGarage);
-  document.getElementById('NailsInStorage').innerHTML =     formatBigInt(save.NailsInStorage);
-  document.getElementById('Steelbars').innerHTML =          formatBigInt(save.SteelbarsByK,3);
+  document.getElementById('NailsTotal').innerHTML =              formatBigInt(save.Nails);
+  document.getElementById('NailsProduction').innerHTML =         formatBigInt(save.NailsPerTick);
+  document.getElementById('StorageGarageCount').innerHTML =      formatBigInt(save.StorageGarage);
+  document.getElementById('NailsInStorage').innerHTML =          formatBigInt(save.NailsInStorage);
+  document.getElementById('Steelbars').innerHTML =               formatBigInt(save.SteelbarsByK,3);
+  let storagecap = getStorageCap();
+  document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
+  document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;
+  document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
 }
 
 function getStorageCap() {

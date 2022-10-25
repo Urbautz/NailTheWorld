@@ -89,10 +89,17 @@ ul
 {
 	list-style-type: none;
 	padding-left: 0px;
+    margin: auto;
+    text-align: auto;
 }
 
 ul li span { 
 	float: left;
+}
+
+p {
+  margin:auto;
+  text-align: center;
 }
 
 button {
@@ -111,9 +118,12 @@ table, th, td {
   border: 1px solid aliceblue;
   box-shadow: 2px 2px 2px #335599;
   border-collapse: collapse;
-  margin: 1px;
   padding: 5px;
   width:50%;
   min-width:50px;
   text-align:right;
+}
+
+table {
+  margin: auto;
 }
