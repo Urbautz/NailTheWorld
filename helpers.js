@@ -14,10 +14,23 @@ function formatBigInt(value,cutby=0) {
 function updateVisibility(){
   limits.forEach(limit => {
     if(limit.LimitLow < save.Nails ) {
-      if(document.getElementById(limit.Show) != null) 
-        document.getElementById(limit.Show).style.visibility = "visible";
-    }
-  });
+      let  allow = true;
+      if('Other' in limit) { // loop over other restrictions
+        obj = limit['Other'];
+         Object.keys(obj).forEach(key => {
+                               let k = save[key];
+                               let k2 = limit.Other[key];
+                               if(save[key] < limit.Other[key]) {
+                                 allow = false;
+                               } // endif
+                            } ); // end foreach
+      } // end check other
+      if (allow) {
+        if(document.getElementById(limit.Show) != null) 
+          document.getElementById(limit.Show).style.visibility = "visible";
+      }//end allow
+    } // end nails
+  });//end foreach
 }
 
 function updateView(){

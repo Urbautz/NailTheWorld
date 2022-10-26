@@ -48,13 +48,18 @@
   </div>
   <div class="col">
 	  
-    <div class="sec">
-      <h2>Storage</h2>
-		<p id="StorageGarage">
+    <div class="sec" id="Storage">
+         <h2>Storage</h2>
+	     <p id="StorageGarage">
 			<label id="StorageGarageCount">1</label>
 			<label>Garages</label>
 			<button id="buyGarage" onclick="buyGarage(1n);" title="$5000">Buy a Garage</button>
-	  </p>
+	    </p>
+	    <p id="StorageWarehouseSmall" style="visibility: hidden;" >
+			<label id="StorageWarehouseSmallCount">0</label>
+			<label>Small Warehouse</label>
+			<button id="buyWarehouseSmall" onclick="buyWarehouseSmall(1n);" title="$5000">Buy a small whs</button>
+	    </p>
 		<table>
 			<tr>
 				<th>Type</th>

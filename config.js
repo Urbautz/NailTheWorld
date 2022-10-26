@@ -3,9 +3,8 @@ let settings = {
 };
 
 const limits = [
-  {LimitLow: 25n,                                       Show:'press10'}, 
-  {LimitLow: 1000n,                                     Show:'xzy'},
-  {LimitLow: 1000000n,  other:[StorageGarage= 25n],     Show:'StorageWarehouseSmall'}
+  {LimitLow:              25n,                                   Show:'press10'}, 
+  {LimitLow:          500000n,  Other:{StorageGarage: 5n},       Show:'StorageWarehouseSmall'}
 ]
 
 const Storage = {
