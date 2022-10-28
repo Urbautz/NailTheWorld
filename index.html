@@ -42,13 +42,20 @@
         </li>
       </ul>  
     </div>
-    <div class="sec" style="visibility: hidden;">
-      <h2>Smelting</h2>
+		  
+    <div class="sec" id="Steelbars" style="visibility: hidden;">
+      <h2>Steelbars</h2>
+	  <ul class="buttons"> 
+	    <li> 
+	      <button id="Buy Steelbar" onclick"=buySteelbar(1n)">Buy Steelbar</button>
+	    </li>
+	  </ul>
     </div>
+		  
   </div>
   <div class="col">
 	  
-    <div class="sec" id="Storage">
+    <div class="sec" id="Storage" style="visibility: hidden;">
          <h2>Storage</h2>
 	     <p id="StorageGarage">
 			<label id="StorageGarageCount">1</label>
@@ -87,7 +94,7 @@
     </div>
   </div>
   <div class="col">
-	<div class="sec" class="Bank" style="visibility: hidden;">
+	<div class="sec" id="Bank" style="visibility: hidden;">
       <h2>Bank</h2>
 	  <p id="Money">$ 0</p>
     </div>
