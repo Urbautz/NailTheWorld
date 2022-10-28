@@ -7,6 +7,7 @@ let save = {
   StorageWarehouseSmall: 0n,
   StorageWarehouseMedium: 0n,
   NailsInStorage: 0n,
+  Money:5000n,
   SteelbarsByK: 1000n
 };
 
@@ -27,6 +28,7 @@ function load() {
     if(!save.hasOwnProperty('StorageWarehousSmall')) save.StorageWarehousSmall = 0n;
     if(!save.hasOwnProperty('StorageWarehouseMedium')) save.StorageWarehouseMedium = 0n;
     if(!save.hasOwnProperty('NailsInStorage')) save.NailsInStorage = 0n;
+    if(!save.hasOwnProperty('Money')) save.Money = 5000n;
     if(!save.hasOwnProperty('SteelbarsByK')) save.SteelbarsByK = 0n;
     console.log("save loaded");
   }

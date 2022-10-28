@@ -1,13 +1,24 @@
-function formatBigInt(value,cutby=0) {
-  if(cutby == 0) 
-    return value.toString();
-  else {
-    let ret = value.toString();
+function formatBigInt(value,cutby=0,format=null) {
+  let ret = value.toString();
+  console.log(ret);
+  //cut if necessary
+  if(cutby != 0) {
     if(ret.length > cutby) {
       ret = ret.substr(0, ret.length - cutby);
     }
-    return ret;
   }
+  // format tousands
+  ret = ret.replace(/\B(?=(\d{3})+(?!\d))/g, settings['TousandPoint']);
+  console.log(ret);
+
+
+  // format with currency etc.
+  if (format != null) {
+    ret = format.replace('n',ret);
+  }
+  
+  console.log(ret);
+  return ret;
 
 }
 
@@ -34,6 +45,7 @@ function updateVisibility(){
 }
 
 function updateView(){
+  document.getElementById('Money').innerHTML =                   formatBigInt(save.Money,0,settings.Currency);
   document.getElementById('NailsTotal').innerHTML =              formatBigInt(save.Nails);
   document.getElementById('NailsProduction').innerHTML =         formatBigInt(save.NailsPerTick);
   document.getElementById('StorageGarageCount').innerHTML =      formatBigInt(save.StorageGarage);
@@ -42,6 +54,7 @@ function updateView(){
   let storagecap = getStorageCap();
   document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
   document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;
+  document.getElementById('Money').innerHTML =        
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
 }
 

@@ -1,5 +1,7 @@
 let settings = {
-  Language:"EN/US"
+  Language:'EN/US',
+  TousandPoint:'.',
+  Currency: '$ n'
 };
 
 const limits = [
