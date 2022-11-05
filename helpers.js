@@ -37,6 +37,10 @@ function updateVisibility(){
       if (allow) {
         if(document.getElementById(limit.Show) != null) {
           console.log('unlock: '+ limit.Show);
+          if(document.getElementById(limit.Show).className == 'hidden') {
+            document.getElementById(limit.Show).classList.remove('hidden');
+          }
+          
           document.getElementById(limit.Show).style.visibility = "visible";
         } else {
           console.log('Element to unlock does not exist: '+ limit.Show);
@@ -57,6 +61,7 @@ function updateView(){
   document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
   document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;  
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
+console.log("did run updateView");
 }
 
 function getStorageCap() {
