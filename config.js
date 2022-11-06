@@ -1,6 +1,7 @@
 let settings = {
   Language:'EN/US',
   TousandPoint:'.',
+  DecimalPoint:',',
   Currency: '$ n'
 };
 
@@ -17,4 +18,3 @@ const Storage = {
   , WarehouseSmall:    {Capacity:    50000000n, Cost:  100000n}
   , WarehouseMedium:   {Capacity:  1000000000n, Cost: 5000000n}    
 }
-  

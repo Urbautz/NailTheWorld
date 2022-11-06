@@ -8,7 +8,8 @@ let save = {
   StorageWarehouseMedium: 0n,
   NailsInStorage: 0n,
   Money:5000n,
-  SteelbarsByK: 1000n
+  SteelbarsByK: 1000n,
+  SteelbarCost: 10n
 };
 
 function load() {
@@ -23,14 +24,13 @@ function load() {
       }
       return value;
     });
-    if(backAgain != null) save = backAgain;
-    if(!save.hasOwnProperty('StorageGarage')) save.StorageGarage = 1n;
-    if(!save.hasOwnProperty('StorageWarehousSmall')) save.StorageWarehousSmall = 0n;
-    if(!save.hasOwnProperty('StorageWarehouseMedium')) save.StorageWarehouseMedium = 0n;
-    if(!save.hasOwnProperty('NailsInStorage')) save.NailsInStorage = 0n;
-    if(!save.hasOwnProperty('Money')) save.Money = 5000n;
-    if(!save.hasOwnProperty('SteelbarsByK')) save.SteelbarsByK = 0n;
-    console.log("save loaded");
+    if(backAgain != null) 
+    { 
+    //if(!save.hasOwnProperty('Money')) save.Money = 5000n;
+      if(!save.hasOwnProperty('SteelbarCost')) save.SteelbarCost = 1n;
+      save = backAgain;
+      console.log("save loaded");
+    }
   }
   updateView();
   updateVisibility();
@@ -40,6 +40,7 @@ function doSave() {
   let stringed = JSON.stringify(save, (key, value) =>
   typeof value === "bigint" ? value.toString() + "n" : value
   );
+  console.log('Saving: ' + stringed);
   window.localStorage.setItem('save', stringed);
   updateVisibility();
   updateView();
