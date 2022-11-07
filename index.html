@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en-US">
 
 <head>
 <meta charset="utf-8">
@@ -13,14 +13,13 @@
 </head>
 
 <body onload="load();">
-
+<div class="container">
 <!-- header -->
 <header>
 	<h1>Nail it!</h1>
 </header>
    
      
-<!-- article -->     
 <main>
   <div class="col">
     <div class="sec">
@@ -34,7 +33,7 @@
           <span class="bigint" id="NailsProduction">0</span>
           <label> N/tick</label>
         </li>
-      <ul>
+	  </ul>
       <ul class="buttons">
         <li>
           <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
@@ -52,7 +51,7 @@
 	    </li>
 	  </ul>
     </div>
-		  
+		
   </div>
   <div class="col">
 	  
@@ -111,11 +110,41 @@
      
      
 <footer>
-  <div><button onclick="DeleteSave()">Delete Save</button></div>
-  <div>Photo by <a href="https://unsplash.com/es/@surya1213?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Surya Prakash</a> on <a href="https://unsplash.com/s/photos/steel-nails?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-</div>
-<div>XXXX IMPRESSUM XXXXX</div>
+  <div>
+	  <button onclick="DeleteSave()">Delete Save</button>
+	  <button onclick="ShowModal('settings')">Settings</button>
+  </div>
+  <div>XXXX IMPRESSUM XXXXX</div>
 </footer>
 
+<div id="settings" class="modal">
+  <div class="modal-content">
+	<h1>Settings</h1>
+    <table>
+		<tr>
+			<td>Decimal Seperator</td>
+			<td><input type="text" maxlength="1" id="DecimalPoint" onchange="saveSettings()"></input></td>
+		</tr>
+		<tr>
+			<td>Touasand Separator</td>
+			<td><input type="text" maxlength="1" id="TousandPoint" onchange="saveSettings()"></input></td>
+		</tr>
+		<tr>
+			<td>Currency Format</td>
+			<td width="50px"><input type="text" maxlength="3" id="Currency" onchange="saveSettings()"></input></td>
+		</tr>
+		<tr>
+			<td>Example</td>
+			<td id='FormatExample' width="100px"></td>
+		</tr>
+	</table>
+    
+	<p style="text-align:center">
+		<button onclick="closeModal('settings')">Close</button>
+	</p>
+  </div>
+</div>
+
+</div>
 </body>
 </html>

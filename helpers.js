@@ -57,6 +57,13 @@ function updateVisibility(){
 }
 
 function updateView(){
+  // settings
+  document.getElementById('TousandPoint').value = settings.TousandPoint;
+  document.getElementById('DecimalPoint').value = settings.DecimalPoint;
+  document.getElementById('Currency').value = settings.Currency;
+  document.getElementById('FormatExample').innerHTML =  formatBigInt(123456711, 2,settings.Currency);
+  
+  //main elements
   document.getElementById('Money').innerHTML =                   formatBigInt(save.Money,2,settings.Currency);
   document.getElementById('NailsTotal').innerHTML =              formatBigInt(save.Nails);
   document.getElementById('NailsProduction').innerHTML =         formatBigInt(save.NailsPerTick);
