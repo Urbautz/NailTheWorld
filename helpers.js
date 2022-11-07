@@ -3,10 +3,8 @@ function formatBigInt(value,cutby=0,format=null) {
   //cut if necessary
   if(cutby != 0) {
     if(ret.length > cutby) {
-      console.log(ret.length);
       ret = ret.substr(0, ret.length - cutby);
     } else {
-      console.log(ret.length);
       ret = '0';
     }
       // Add decimals for small values
@@ -64,18 +62,11 @@ function updateView(){
   document.getElementById('NailsProduction').innerHTML =         formatBigInt(save.NailsPerTick);
   document.getElementById('StorageGarageCount').innerHTML =      formatBigInt(save.StorageGarage);
   document.getElementById('NailsInStorage').innerHTML =          formatBigInt(save.NailsInStorage);
-  document.getElementById('SteelbarsNo').innerHTML =               formatBigInt(save.SteelbarsByK,3);
+  document.getElementById('SteelbarsNo').innerHTML =             formatBigInt(save.SteelbarsByK,3);
   let storagecap = getStorageCap();
   document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
   document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;  
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
-console.log("did run updateView");
+  console.log("did run updateView");
 }
 
-function getStorageCap() {
-  let cap = 0n;
-  cap += save.StorageGarage * Storage.Garage.Capacity;
-  cap += save.StorageWarehouseSmall * Storage.WarehouseSmall.Capacity;
-  cap += save.StorageWarehouseMedium * Storage.WarehouseMedium.Capacity;
-  return cap;
-}

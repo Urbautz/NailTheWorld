@@ -10,6 +10,7 @@ const limits = [
   {LimitLow:             300n,                                   Show:'Storage'},
   {LimitLow:             500n,                                   Show:'Bank'},
   {LimitLow:             950n,                                   Show:'Steelbars'},
+  {LimitLow:          250000n,                                   Show:'BuySteelbar100'},
   {LimitLow:          500000n,  Other:{StorageGarage: 5n},       Show:'StorageWarehouseSmall'}
 ]
 

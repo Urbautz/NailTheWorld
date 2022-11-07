@@ -52,3 +52,8 @@ function DeleteSave() {
     window.location.reload(false);
   }
 }
+
+function error(text) {
+  console.log('ERROR: ' + text);
+  alert(text);
+}
