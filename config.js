@@ -19,3 +19,8 @@ const Storage = {
   , WarehouseSmall:    {Capacity:    50000000n, Cost:  100000n}
   , WarehouseMedium:   {Capacity:  1000000000n, Cost: 5000000n}    
 }
+
+const probs = {
+  PriceChangeProb: 0.99,
+  PriceIncreaseChance: 0.5001
+}

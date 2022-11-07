@@ -14,11 +14,15 @@ function makeNail(count=0n) {
     console.log("Warehouse full");
     nailstomake = SteelbarsByK + save.NailsInStorage + nailstomake - getStorageCap();
   }
-
-  save.Nails += nailstomake;
-  save.NailsInStorage += nailstomake;
-  save.SteelbarsByK = save.SteelbarsByK - nailstomake;
-  console.log(nailstomake+" Nails made. Steel left: "+save.SteelbarsByK);
+  if(save.SteelbarsByK >= nailstomake )
+  {
+    save.Nails += nailstomake;
+    save.NailsInStorage += nailstomake;
+    save.SteelbarsByK = save.SteelbarsByK - nailstomake;
+    console.log(nailstomake+" Nails made. Steel left: "+save.SteelbarsByK);
+  } else {
+    error("Not enough steel!");
+  }
   doSave();
 }
 
@@ -45,5 +49,19 @@ function buySteelbar(count=1n){
 }
 
 function randomizePrices(){
-  
+   if(BinaryRandom(probs.PriceChangeProb)){
+     let change = 0;
+     console.log('Price changes happening');
+     // SteelbarCost
+     if(BinaryRandom(probs.PriceIncreaseChance)) {
+
+       save.SteelbarCost += save.SteelbarCost / BigInt(getRandom(40,160));
+       console.log('Price increased ' + save.SteelbarCost );
+     } else {
+       save.SteelbarCost -= save.SteelbarCost / BigInt(getRandom(40,160));
+       console.log('Price decreased ' + save.SteelbarCost);
+     }
+   } else {
+     console.log('No Price Change!');
+   }
 }

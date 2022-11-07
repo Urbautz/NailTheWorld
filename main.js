@@ -7,9 +7,9 @@ let save = {
   StorageWarehouseSmall: 0n,
   StorageWarehouseMedium: 0n,
   NailsInStorage: 0n,
-  Money:5000n,
+  Money:50000n,
   SteelbarsByK: 1000n,
-  SteelbarCost: 10n
+  SteelbarCost: 1500n // 15 Dollar
 };
 
 function load() {
@@ -27,7 +27,7 @@ function load() {
     if(backAgain != null) 
     { 
     //if(!save.hasOwnProperty('Money')) save.Money = 5000n;
-      if(!save.hasOwnProperty('SteelbarCost')) save.SteelbarCost = 1n;
+      if(!save.hasOwnProperty('SteelbarCost')) save.SteelbarCost = 1500n;
       save = backAgain;
       console.log("save loaded");
     }

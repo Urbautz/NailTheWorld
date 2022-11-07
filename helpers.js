@@ -57,7 +57,7 @@ function updateVisibility(){
 }
 
 function updateView(){
-  document.getElementById('Money').innerHTML =                   formatBigInt(save.Money,0,settings.Currency);
+  document.getElementById('Money').innerHTML =                   formatBigInt(save.Money,2,settings.Currency);
   document.getElementById('NailsTotal').innerHTML =              formatBigInt(save.Nails);
   document.getElementById('NailsProduction').innerHTML =         formatBigInt(save.NailsPerTick);
   document.getElementById('StorageGarageCount').innerHTML =      formatBigInt(save.StorageGarage);
@@ -70,3 +70,12 @@ function updateView(){
   console.log("did run updateView");
 }
 
+function getRandom(min=0, max=100) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function BinaryRandom(probability=0.1) {
+  let rand = Math.random();
+  console.log('Random: ' +rand+ ', Result: ' + (rand < probability));
+  return rand < probability;
+}
