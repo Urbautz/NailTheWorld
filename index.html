@@ -111,7 +111,7 @@
      
 <footer>
   <div>
-	  <button onclick="DeleteSave()">Delete Save</button>
+	  <button onclick="ShowModal('savegame')">Manage Save</button>
 	  <button onclick="ShowModal('settings')">Settings</button>
   </div>
   <div>XXXX IMPRESSUM XXXXX</div>
@@ -145,6 +145,24 @@
   </div>
 </div>
 
+<div id="savegame" class="modal">
+  <div class="modal-content">
+	  <h1>Manage Savegame</h1>
+	  <p style="text-align:center">
+		<button onclick="exportSave()">Export Savegame</button>
+	  </p>
+	  <p style="text-align:center">
+		<button class="btn-upload">Import Savegame</button>
+		<input type="file" id="SaveFile"  onchange="importSave(this)" />
+	  </p>
+	  <p style="text-align:center">
+		<button onclick="DeleteSave()">Delete Save</button>
+	  </p>
+	  <p style="text-align:center">
+		<button onclick="closeModal('savegame')">Close</button>
+	  </p>
+  </div>
+</div>
 </div>
 </body>
 </html>

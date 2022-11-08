@@ -26,6 +26,26 @@ function formatBigInt(value,cutby=0,format=null) {
 
 }
 
+function jsonparse(stringed) {
+  try {
+      return JSON.parse(stringed, (key, value) => {
+      if (typeof value === "string" && /^\d+n$/.test(value)) {
+        return BigInt(value.substr(0, value.length - 1));
+        }
+        return value;
+      });
+  } catch (e) {
+    error('Invalid File');
+    return null;
+  }
+}
+
+function jsonify(json){
+  return JSON.stringify(json, (key, value) =>
+      typeof value === "bigint" ? value.toString() + "n" : value
+    );
+}
+
 function updateVisibility(){
   limits.forEach(limit => {
     if(limit.LimitLow < save.Nails ) {

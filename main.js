@@ -18,13 +18,7 @@ function load() {
  let stringed = localStorage.getItem('setting');
   if(stringed != null )
   {
-    let backAgain = null;
-    backAgain = JSON.parse(stringed, (key, value) => {
-    if (typeof value === "string" && /^\d+n$/.test(value)) {
-      return BigInt(value.substr(0, value.length - 1));
-      }
-      return value;
-    });
+    let backAgain = jsonparse(stringed);
     if(backAgain != null) 
     {
        settings = backAgain;
@@ -35,13 +29,7 @@ function load() {
   stringed = localStorage.getItem('save');
   if(stringed != null )
   {
-    let backAgain = null;
-    backAgain = JSON.parse(stringed, (key, value) => {
-    if (typeof value === "string" && /^\d+n$/.test(value)) {
-      return BigInt(value.substr(0, value.length - 1));
-      }
-      return value;
-    });
+    let backAgain = jsonparse(stringed);
     if(backAgain != null) 
     { 
     //if(!save.hasOwnProperty('Money')) save.Money = 5000n;
@@ -55,9 +43,7 @@ function load() {
 }
 
 function doSave() {
-  let stringed = JSON.stringify(save, (key, value) =>
-  typeof value === "bigint" ? value.toString() + "n" : value
-  );
+  let stringed = jsonify(save);
   console.log('Saving: ' + stringed);
   window.localStorage.setItem('save', stringed);
   updateVisibility();
@@ -65,7 +51,8 @@ function doSave() {
 }
 
 function DeleteSave() {
-  if(window.confirm("Delete Save, are you sure?")){
+  if(confirm("Delete Save, are you sure?")) {
+    console.log("Save deleted");
     localStorage.clear();
     window.location.reload(false);
   }
@@ -88,6 +75,45 @@ function saveSettings() {
   window.localStorage.setItem('setting', stringed);
   updateVisibility();
   updateView();
+}
+
+function exportSave() {
+  const str = jsonify(save);
+  const file = new File(['',str], 'nails.json');
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(file);
+
+  link.href = url;
+  link.download = file.name;
+  document.body.appendChild(link);
+  link.click();
+
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
+  closeModal('savegame');
+}
+
+function importSave(input){
+  let file = input.files[0];
+  if(file != null){
+    let fileReader = new FileReader(); 
+    fileReader.readAsText(file); 
+    fileReader.onload = function() {
+          console.log('File loaded: ' + fileReader.result);
+          let json = jsonparse(fileReader.result);
+          if (json && json.Nails) {
+            save = json;
+            console.log('Save loaded');
+            document.getElementById('SaveFile').value = null;
+            updateView();
+            updateVisibility();
+            doSave();
+          } else error("File invalid!");
+        }; 
+  } else {
+    console.log('No file to load');
+  }
+   closeModal('savegame');
 }
 
 function closeModal(elementname) {

@@ -125,6 +125,8 @@ p {
   margin-left:auto;
   min-height:0px;
   text-align: center;
+  display: inline-block;
+  position: relative;
 }
 
 p.hidden {
@@ -146,6 +148,14 @@ button {
   font-family: 'Consolas', 'Courier New', Courier, monospace;
   font-size: 0.8em;
   background-image: linear-gradient(300deg, rgb(45, 101, 147), #113366); 
+}
+
+input[type=file] {
+  left: 0;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  font-size: 90px;
 }
 
 button:hover{
