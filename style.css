@@ -115,10 +115,17 @@ ul
 	padding-left: 0px;
     margin: auto;
     text-align: auto;
+    vertical-align: middle;
+}
+
+li {
+    vertical-align: middle;;
 }
 
 ul li span { 
 	float: left;
+  text-align:auto;
+  vertical-align: middle;
 }
 
 p {
@@ -132,6 +139,12 @@ p {
 p.hidden {
   height:0px;
   margin:0px;
+}
+
+p.buttons {
+  margin:0px;
+  padding:0px;
+  width:100%;
 }
 
 button {
@@ -148,6 +161,11 @@ button {
   font-family: 'Consolas', 'Courier New', Courier, monospace;
   font-size: 0.8em;
   background-image: linear-gradient(300deg, rgb(45, 101, 147), #113366); 
+}
+button.small {
+  font-size: 1.2em;
+  font-weight:bold;
+  padding:0px;
 }
 
 input[type=file] {

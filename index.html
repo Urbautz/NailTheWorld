@@ -100,8 +100,34 @@
       <h2>Bank</h2>
 	  <p id="Money">$ 0</p>
     </div>
-    <div class="sec" style="visibility: hidden;">
+    <div class="sec" id="Sales" style="visibility: hidden;">
       <h2>Sales</h2>
+		
+	  <table>
+		  <tr>
+			  <td>Price / 100 Nails</td>
+			  <td id="price">$0</td>
+			  <td>
+				<p class="buttons">
+				   <button id="priceplus" onclick="changeprice(1)" class="small">&nbsp;+&nbsp;</button>
+				   <button id="priceminus" onclick="changeprice(-1)" class="small">&nbsp;-&nbsp;</button> 
+				</p>
+			  </td>
+		  </tr>
+	  </table>
+			 <span>:</span>
+			 <span id="price">$ 0</span>
+
+		  </li>
+		  <li>
+			 <span>Market Interest:</span>
+			 <span id="market">100</span>	
+	      </li>
+	      <li> 
+	        <button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
+		    <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="visibility: hidden;">Buy 100 Steelbars</button>
+	      </li>
+	  </ul>
     </div>
     <div class="sec" style="visibility: hidden;">
       <h2>Research</h2>
