@@ -94,6 +94,7 @@ function updateView(){
   document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
   document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;  
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
+  document.getElementById('StorageCap').innerHTML =            formatBigInt(storagecap);
   console.log("did run updateView");
 }
 
