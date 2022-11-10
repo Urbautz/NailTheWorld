@@ -1,4 +1,8 @@
 function formatBigInt(value,cutby=0,format=null) {
+  if(value == null) {
+    console.log('Value was null, cannot format.');
+    return 'FORMAT error';
+  }
   let ret = value.toString();
   //cut if necessary
   if(cutby != 0) {
@@ -40,11 +44,17 @@ function jsonparse(stringed) {
   }
 }
 
+
+
+
 function jsonify(json){
   return JSON.stringify(json, (key, value) =>
       typeof value === "bigint" ? value.toString() + "n" : value
     );
 }
+
+
+
 
 function updateVisibility(){
   limits.forEach(limit => {
@@ -94,7 +104,10 @@ function updateView(){
   document.getElementById('NailsInStoragePercent').innerHTML =   save.NailsInStorage * 100n / storagecap;
   document.getElementById('SteelbarsPercent').innerHTML =        save.SteelbarsByK * 100n / storagecap;  
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
-  document.getElementById('StorageCap').innerHTML =            formatBigInt(storagecap);
+  document.getElementById('StorageCap').innerHTML =              formatBigInt(storagecap);
+
+  document.getElementById('Price').innerHTML =              formatBigInt(save.Price,2,settings.Currency);
+  document.getElementById('Demand').innerHTML =              formatBigInt(save.Demand,0);
   console.log("did run updateView");
 }
 

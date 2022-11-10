@@ -9,7 +9,9 @@ let save = {
   NailsInStorage: 0n,
   Money:50000n,
   SteelbarsByK: 1000n,
-  SteelbarCost: 1500n // 15 Dollar
+  SteelbarCost: 1500n, // 15 Dollar
+  Price: 500n, // 5 Dollar
+  Demand: 5000n
 };
 
 function load() {
@@ -34,6 +36,8 @@ function load() {
     { 
     //if(!save.hasOwnProperty('Money')) save.Money = 5000n;
       if(!save.hasOwnProperty('SteelbarCost')) save.SteelbarCost = 1500n;
+      if(!save.hasOwnProperty('Price')) save.Price = 500n;
+      if(!save.hasOwnProperty('Demand')) save.Demand = 5000n;
       save = backAgain;
       console.log("save loaded");
     }

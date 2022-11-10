@@ -65,3 +65,27 @@ function randomizePrices(){
      console.log('No Price Change!');
    }
 }
+
+function changeNailPrice(value) {
+  if(save.Price + BigInt(value) > 0n) {
+    save.Price += BigInt(value);
+    console.log("Changed Price to "+save.Price+' by '+value);
+  } else {
+    error('You cannot sell below ' + formatBigint(formatBigInt,0,settings.Currency) );
+  }
+  updateDemand();
+  doSave();
+}
+
+function updateDemand(changeby=0n){
+  let d_old = save.Demand;
+  save.Demand += changeby;
+  let pricedeviation = (probs.BaseSalesprice - save.Price) *100n / probs.BaseSalesprice;
+  if(probs.BaseSalesprice < save.Price) {
+    save.Demand += save.Demand * pricedeviation / 100n;
+  } else {
+    save.Demand -= save.Demand * pricedeviation / 100n;
+  }
+  
+  console.log('Demand changed from '+d_old+' to '+save.Demand);
+}
