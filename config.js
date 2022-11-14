@@ -2,7 +2,8 @@ let settings = {
   Language:'EN/US',
   TousandPoint:'.',
   DecimalPoint:',',
-  Currency: '$ n'
+  Currency: '$ n',
+  Pause: false
 };
 
 const limits = [

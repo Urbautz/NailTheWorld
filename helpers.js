@@ -92,6 +92,10 @@ function updateView(){
   document.getElementById('DecimalPoint').value = settings.DecimalPoint;
   document.getElementById('Currency').value = settings.Currency;
   document.getElementById('FormatExample').innerHTML =  formatBigInt(123456711, 2,settings.Currency);
+  if(settings.Pause) 
+    document.getElementById('Pause').innerHTML = '&#9654; Unpause';
+  else 
+    document.getElementById('Pause').innerHTML = '&#10074;&#10074; Pause';
   
   //main elements
   document.getElementById('Money').innerHTML =                   formatBigInt(save.Money,2,settings.Currency);

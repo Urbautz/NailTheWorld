@@ -1,6 +1,7 @@
 
 
 let save = {
+  Tick: 0n,
   Nails: 0n,
   NailsPerTick: 0n,
   StorageGarage: 1n,
@@ -39,12 +40,26 @@ function load() {
       //Savegame Version updates:
       if(!backAgain.hasOwnProperty('AutoPress')) backAgain.AutoPress = 0n;
       if(!backAgain.hasOwnProperty('AutoPressPrice')) backAgain.AutoPressPrice = 1000n;
+      if(!backAgain.hasOwnProperty('Tick')) backAgain.Tick = 0n;
       save = backAgain;
       console.log("save loaded");
     }
   }
+  settings.Pause = false;
   updateView();
   updateVisibility();
+  // Start Ticking
+  setInterval(tick, 1000);
+}
+
+function tick() {
+
+  if(settings.Pause){
+    return;
+  }
+  save.Tick += 1n;
+  console.log('Ticking ' +save.Tick );
+  
 }
 
 function doSave() {
@@ -65,6 +80,7 @@ function DeleteSave() {
 
 function error(text) {
   console.log('ERROR: ' + text);
+  setting.Pause=true;
   alert(text);
 }
 
@@ -133,4 +149,15 @@ function ShowModal(elementname) {
   updateView();
   let modal = document.getElementById(elementname);
   modal.style.display = 'block';
+}
+
+function tooglepause() {
+  if(settings.Pause) {
+    settings.Pause = false;
+
+  }
+  else {
+    settings.Pause = true;
+  }
+  updateView();
 }
