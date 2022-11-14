@@ -108,6 +108,10 @@ function updateView(){
 
   document.getElementById('Price').innerHTML =              formatBigInt(save.Price,2,settings.Currency);
   document.getElementById('Demand').innerHTML =              formatBigInt(save.Demand,0);
+
+  document.getElementById('AutoPressNo').innerHTML =              formatBigInt(save.AutoPress,0);
+  document.getElementById('AutoPressPrice').innerHTML =           formatBigInt(save.AutoPressPrice,2,settings.Currency);
+  
   console.log("did run updateView");
 }
 

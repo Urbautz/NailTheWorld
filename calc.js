@@ -82,11 +82,7 @@ function updateDemand(changeby=0n, refactor=true){
   save.Demand += changeby;
   let pricedeviation = (probs.BaseSalesprice - save.Price) *100n / probs.BaseSalesprice;
   if(refactor) { 
-    if(probs.BaseSalesprice > save.Price) {
       save.Demand += save.Demand * pricedeviation / 100n;
-    } else {
-      save.Demand -= save.Demand * pricedeviation / 100n;
-    }
   }
   console.log('Demand changed from '+d_old+' to '+save.Demand);
 }
@@ -103,4 +99,26 @@ function SellNails(count=100n){
   console.log('Sold '+count+'Nails for '+ (count * save.Price));
   updateDemand(-100n,true)
   doSave();
+}
+
+function  buyAutoPress(count=1n,price=null) {
+  if(price==null) 
+    price = save.AutoPressPrice;
+  if(count != 1n) { 
+      for (let i=0n;i<count;i++){
+        buyAutoPress(1n,price);
+      }
+  } else {
+    //make one press
+    if(save.Money < price) {
+      error("Not enough Money.");
+      return;
+    }
+    save.Money -= price;
+    save.AutoPress++;
+    save.AutoPressPrice = price * probs.AutoPressPriceFactor / 100n;
+    console.log('Bought Autopress, price changed to ' + AutoPressPrice);
+    doSave();
+  }
+
 }

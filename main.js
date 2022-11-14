@@ -11,7 +11,9 @@ let save = {
   SteelbarsByK: 1000n,
   SteelbarCost: 1500n, // 15 Dollar
   Price: 500n, // 5 Dollar
-  Demand: 5000n
+  Demand: 5000n,
+  AutoPress:0n,
+  AutoPressPrice:1000n // 10 Dollar
 };
 
 function load() {
@@ -34,10 +36,9 @@ function load() {
     let backAgain = jsonparse(stringed);
     if(backAgain != null) 
     { 
-    //if(!save.hasOwnProperty('Money')) save.Money = 5000n;
-      if(!save.hasOwnProperty('SteelbarCost')) save.SteelbarCost = 1500n;
-      if(!save.hasOwnProperty('Price')) save.Price = 500n;
-      if(!save.hasOwnProperty('Demand')) save.Demand = 5000n;
+      //Savegame Version updates:
+      if(!backAgain.hasOwnProperty('AutoPress')) backAgain.AutoPress = 0n;
+      if(!backAgain.hasOwnProperty('AutoPressPrice')) backAgain.AutoPressPrice = 1000n;
       save = backAgain;
       console.log("save loaded");
     }

@@ -8,10 +8,12 @@ let settings = {
 const limits = [
   {LimitLow:              25n,                                   Show:'press10'}, 
   {LimitLow:             300n,                                   Show:'Storage'},
-  {LimitLow:             500n,                                   Show:'Bank'},
+  {LimitLow:             800n,                                   Show:'Bank'},
   {LimitLow:             950n,                                   Show:'Steelbars'},
   {LimitLow:            2000n,                                   Show:'Sales'},
+  {LimitLow:            3000n,                                   Show:'AutoPress'},
   {LimitLow:          250000n,                                   Show:'BuySteelbar100'},
+  {LimitLow:          250000n,                                   Show:'buyAutopress10'},
   {LimitLow:          500000n,  Other:{StorageGarage: 5n},       Show:'StorageWarehouseSmall'}
 ]
 
@@ -22,7 +24,8 @@ const Storage = {
 }
 
 const probs = {
-  PriceChangeProb: 0.99,
+  PriceChangeProb: 0.3,
   PriceIncreaseChance: 0.5001,
-  BaseSalesprice: 500n
+  BaseSalesprice: 500n,
+  AutoPressPriceFactor: 125n // 25%
 }
