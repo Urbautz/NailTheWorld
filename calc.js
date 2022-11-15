@@ -11,7 +11,7 @@ function makeNail(count=0n) {
   // Check Capacity
   let nailstomake = BigInt(count);
   if (getStorageCap() < save.SteelbarsByK + save.NailsInStorage + nailstomake ) {
-    console.log("Warehouse full");
+    error("Warehouse is full");
     nailstomake = SteelbarsByK + save.NailsInStorage + nailstomake - getStorageCap();
   }
   if(save.SteelbarsByK >= nailstomake )
@@ -23,12 +23,12 @@ function makeNail(count=0n) {
   } else {
     error("Not enough steel!");
   }
-  doSave();
+  
 }
 
 function buyGarage(count=1){
   save.StorageGarage += BigInt(count);
-  doSave();
+  updateView();
 }
 
 function buySteelbar(count=1n){
@@ -39,7 +39,7 @@ function buySteelbar(count=1n){
       save.Money -= BigInt(count) * save.SteelbarCost;
       console.log('Bought '+count+' Steelbars');
       randomizePrices();
-      doSave();
+
     } else {
       error('Not enough storage capacity.');
     }
@@ -74,12 +74,12 @@ function changeNailPrice(value) {
     error('You cannot sell below ' + formatBigint(formatBigInt,0,settings.Currency) );
   }
   updateDemand(0n, false);
-  doSave();
+  updateView();
 }
 
 function updateDemand(changeby=0n, refactor=true){
   let d_old = save.Demand;
-  save.Demand += changeby;
+  save.Demand += BigInt(changeby);
   let pricedeviation = (probs.BaseSalesprice - save.Price) *100n / probs.BaseSalesprice;
   if(refactor) { 
       save.Demand += save.Demand * pricedeviation / 100n;
@@ -98,7 +98,7 @@ function SellNails(count=100n){
   save.Money += count * save.Price;
   console.log('Sold '+count+'Nails for '+ (count * save.Price));
   updateDemand(-100n,true)
-  doSave();
+  updateView();
 }
 
 function  buyAutoPress(count=1n,price=null) {
@@ -118,7 +118,7 @@ function  buyAutoPress(count=1n,price=null) {
     save.AutoPress++;
     save.AutoPressPrice = price * probs.AutoPressPriceFactor / 100n;
     console.log('Bought Autopress, price changed to ' + AutoPressPrice);
-    doSave();
+    updateView();
   }
 
 }

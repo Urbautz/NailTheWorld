@@ -117,6 +117,7 @@ function updateView(){
   document.getElementById('AutoPressPrice').innerHTML =           formatBigInt(save.AutoPressPrice,2,settings.Currency);
   
   console.log("did run updateView");
+  updateVisibility();
 }
 
 function getRandom(min=0, max=100) {

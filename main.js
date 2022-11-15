@@ -47,19 +47,33 @@ function load() {
   }
   settings.Pause = false;
   updateView();
-  updateVisibility();
   // Start Ticking
   setInterval(tick, 1000);
 }
 
 function tick() {
-
+  let start = performance.now();
   if(settings.Pause){
     return;
   }
   save.Tick += 1n;
+  let tikmod = save.Tick.toString().charAt(save.Tick.toString().length-1);
   console.log('Ticking ' +save.Tick );
+
+  // every tick
+  let nps = save.AutoPress;
+  save.NailsPerTick = nps;
+  makeNail(nps);
+  updateDemand(getRandom(0, 18), false);
+  // every 10 ticks
+  if(tikmod == "0"){
+    console.log("Big tick");
+    randomizePrices();
+    updateDemand(0n, true);
+  }
   
+  doSave();
+  console.log('Tick done, took ' + ( window.performance.now() - start) );
 }
 
 function doSave() {
@@ -81,7 +95,8 @@ function DeleteSave() {
 function error(text) {
   console.log('ERROR: ' + text);
   setting.Pause=true;
-  alert(text);
+  alert(text
+        + " Game paused!");
 }
 
 function saveSettings() {
