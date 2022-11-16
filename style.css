@@ -82,6 +82,7 @@ div.sec {
   background-color: rgba(65, 121, 167,.4);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgb(45, 101, 147,.5);
+  background-image: linear-gradient(0deg, rgba(45, 101, 147,.1), rgba(65, 121, 167,.6)); 
 }
 
 
@@ -114,6 +115,8 @@ ul
 	list-style-type: none;
 	padding-left: 0px;
     margin: auto;
+    margin-top:5px;
+    margin-botton:5px;
     text-align: auto;
     vertical-align: middle;
 }
@@ -141,14 +144,15 @@ p.hidden {
   margin:0px;
 }
 
-p.buttons {
-  margin:0px;
-  padding:0px;
-  width:100%;
+.buttons {
+  margin:0 auto;
+  display: table;
+  padding:4px;
 }
 
 button {
   margin:4px;
+
   padding:4px;
   padding-left:6px;
   padding-right:6px;
@@ -197,7 +201,7 @@ input {
 }
 
 th, td {
-  border: 1px solid lightblue;
+  border: 1px solid steelblue;
   border-collapse: collapse;
   padding: 5px;
   min-width:50px;
@@ -207,12 +211,13 @@ th, td {
 
 table {
   margin: auto;
-  margin-bottom:5px;
-  border: 1px solid lightblue;
+  margin-bottom:8px;
+  margin-top:5px;
+  border: 2px solid steelblue;
   min-width:70%;
   padding: 1px;
   border-radius: 8px;
-  box-shadow: 2px 2px 2px #335599;
+  box-shadow: 2px 2px 2px rgba(65, 121, 167,.2);
   
 }
 

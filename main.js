@@ -94,7 +94,7 @@ function DeleteSave() {
 
 function error(text) {
   console.log('ERROR: ' + text);
-  setting.Pause=true;
+  settings.Pause=true;
   alert(text
         + " Game paused!");
 }

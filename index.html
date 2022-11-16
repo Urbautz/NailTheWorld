@@ -24,39 +24,40 @@
   <div class="col">
     <div class="sec">
       <h2>Nails</h2>
-      <ul>
-        <li>
-          <span class="bigint" id="NailsTotal">0</span>
-          <label>Nails</label>
-        </li>
-        <li>
-          <span class="bigint" id="NailsProduction">0</span>
-          <label> N/tick</label>
-        </li>
-	  </ul>
-      <ul class="buttons">
-        <li>
+	  <table>
+		  <tr>
+			  <td >
+				  Total Produced
+			  </td>
+			  <td id="NailsTotal">0</td>
+		  </tr>
+		  <tr>
+			  <td id="NailsTotal">
+				  Nails Per Tick
+			  </td>
+			  <td id="NailsProduction">0</td>
+		  </tr>
+		  
+	  </table>	
+      <div class="buttons">
           <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
           <button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button>
-        </li>
-	    <li id="AutoPress" style="visibility: hidden;">
-			<table>
-				<tr>
-					<th>Autopresses</th>
-					<th>Price</th>
-					<th>Buy</th>
-				</tr>
-				<tr>
-					<td id="AutoPressNo">0</td>
-					<td id="AutoPressPrice">$5.00</td>
-					<td>
-						<button id="buyautopress1" onclick="buyAutoPress(1n);">+1</button>
-					    <button id="buyAutopress10" onclick="buyAutoPress(10n);" style="visibility: hidden;">+10</button>
-					</td>
-				</tr>
-			</table>
-	    </li>
-      </ul>  
+	  </div>
+		<table>
+			<tr>
+				<th>Autopresses</th>
+				<th>Price</th>
+				<th>Buy</th>
+			</tr>
+			<tr>
+				<td id="AutoPressNo">0</td>
+				<td id="AutoPressPrice">$5.00</td>
+				<td>
+					<button id="buyautopress1" onclick="buyAutoPress(1n);">+1</button>
+					<button id="buyAutopress10" onclick="buyAutoPress(10n);" style="visibility: hidden;">+10</button>
+				</td>
+			</tr>
+		</table>
     </div>
 		  
     <div class="sec" id="Steelbars" style="visibility: hidden;">
@@ -74,18 +75,21 @@
 	  
     <div class="sec" id="Storage" style="visibility: hidden;">
          <h2>Storage</h2>
-	     <p id="StorageGarage">
-			<label id="StorageGarageCount">1</label>
-			<label>Garages</label>
-			<button id="buyGarage" onclick="buyGarage(1n);" title="$5000">Buy a Garage</button>
-	    </p>
-	    <p id="StorageWarehouseSmall" style="visibility: hidden;" class="hidden">
-			<label id="StorageWarehouseSmallCount">0</label>
-			<label>Small Warehouse</label>
-			<button id="buyWarehouseSmall" onclick="buyWarehouseSmall(1n);" title="$5000">Buy a small whs</button>
-	    </p>
 		<table>
+
 			<tr>
+				<th>Garages</th>
+				<td id="StorageGarageCount">0</td>
+				<td><button id="buyGarage" onclick="buyGarage(1n);" title="$5000" style="visibility: hidden;">Buy a Garage</button></td>
+			</tr>
+			<tr>
+				<th>Warehouse Small</th>
+				<td id="StorageWarehouseSmallCount">0</td>
+				<td></td>
+			</tr>
+		</table>
+		<table>
+					<tr>
 				<th>Type</th>
 				<th>Total</th>
 				<th>%</th>
@@ -106,6 +110,9 @@
 				<th  id="StorageTotal">0</th>
 			</tr>
 		</table>
+		<div class="buttons">
+			
+		</div>
     </div>
 	  
     <div class="sec" class="Power" style="visibility: hidden;" >

@@ -13,8 +13,9 @@ const limits = [
   {LimitLow:             950n,                                   Show:'Steelbars'},
   {LimitLow:            2000n,                                   Show:'Sales'},
   {LimitLow:            3000n,                                   Show:'AutoPress'},
-  {LimitLow:          250000n,                                   Show:'BuySteelbar100'},
-  {LimitLow:          250000n,                                   Show:'buyAutopress10'},
+  {LimitLow:            5000n,                                   Show:'BuySteelbar100'},
+  {LimitLow:            7000n,                                   Show:'buyGarage'},
+  {LimitLow:           25000n,  Other:{AutoPress: 25n},          Show:'buyAutopress10'},
   {LimitLow:          500000n,  Other:{StorageGarage: 5n},       Show:'StorageWarehouseSmall'}
 ]
 
