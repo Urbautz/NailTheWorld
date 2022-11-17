@@ -14,7 +14,9 @@ let save = {
   Price: 500n, // 5 Dollar
   Demand: 5000n,
   AutoPress:0n,
-  AutoPressPrice:1000n // 10 Dollar
+  AutoPressPrice:1000n, // 10 Dollar
+  SalesReps:0n,
+  SalesRepsActive:0n
 };
 
 function load() {
@@ -38,9 +40,8 @@ function load() {
     if(backAgain != null) 
     { 
       //Savegame Version updates:
-      if(!backAgain.hasOwnProperty('AutoPress')) backAgain.AutoPress = 0n;
-      if(!backAgain.hasOwnProperty('AutoPressPrice')) backAgain.AutoPressPrice = 1000n;
-      if(!backAgain.hasOwnProperty('Tick')) backAgain.Tick = 0n;
+      if(!backAgain.hasOwnProperty('SalesReps')) backAgain.SalesReps = 0n;
+      if(!backAgain.hasOwnProperty('SalesRepsActive')) backAgain.SalesRepsActive = backAgain.SalesReps;
       save = backAgain;
       console.log("save loaded");
     }
@@ -64,6 +65,7 @@ function tick() {
   let nps = save.AutoPress;
   save.NailsPerTick = nps;
   makeNail(nps);
+  paySalesReps();
   updateDemand(getRandom(0, 18), false);
   // every 10 ticks
   if(tikmod == "0"){
@@ -100,7 +102,7 @@ function error(text) {
 }
 
 function saveSettings() {
-    console.log('saving settings ...');
+  console.log('saving settings ...');
   settings.TousandPoint = document.getElementById('TousandPoint').value;
   settings.DecimalPoint = document.getElementById('DecimalPoint').value;
   settings.Currency = document.getElementById('Currency').value;

@@ -116,6 +116,10 @@ function updateView(){
   document.getElementById('AutoPressNo').innerHTML =              formatBigInt(save.AutoPress,0);
   document.getElementById('AutoPressPrice').innerHTML =           formatBigInt(save.AutoPressPrice,2,settings.Currency);
   
+  document.getElementById('SalesRepCount').innerHTML =           formatBigInt(save.SalesReps);
+  document.getElementById('SalesRepCost').innerHTML =           formatBigInt(getSalesRepCost(), 2, settings.Currency);
+
+  getSalesRepCost()
   console.log("did run updateView");
   updateVisibility();
 }
@@ -129,3 +133,4 @@ function BinaryRandom(probability=0.1) {
   console.log('Random: ' +rand+ ', Result: ' + (rand < probability));
   return rand < probability;
 }
+

@@ -84,6 +84,10 @@ function updateDemand(changeby=0n, refactor=true){
   if(refactor) { 
       save.Demand += save.Demand * pricedeviation / 100n;
   }
+  console.log(pricedeviation);
+  if(pricedeviation < 1) pricedeviation = 1; 
+  save.Demand += save.SalesReps * BigInt(pricedeviation) * BigInt(getRandom(5,200));
+  
   console.log('Demand changed from '+d_old+' to '+save.Demand);
 }
 
@@ -121,4 +125,45 @@ function  buyAutoPress(count=1n,price=null) {
     updateView();
   }
 
+}
+
+function getSalesRepCost() {
+  let ret = (save.SalesReps** (probs.SalesRepHireCostFactor / 100n)) * probs.SalesRepHireBaseCost + probs.SalesRepHireBaseCost;
+  return ret;
+}
+
+function hireSalesRep(count=1n,cost=getSalesRepCost()){
+  if(count > 1n) {
+    for(let i=0;i<count;i++) {
+      hireSalesRep(1n,cost);
+    }
+  } 
+  if(save.Money < cost) {
+    error('Not enough Money!');
+    return;
+  }
+  save.Money -= cost;
+  save.SalesReps++;
+  save.SalesRepsActive = save.SalesReps++
+  console.log('Salesrep hired');
+  doSave();
+}
+
+function fireSalesRep(count=1n){
+  if(save.SalesReps >= count) {
+    save.SalesReps -= count;
+    console.log('Salesrep fired');
+  } else console.log("Not enough Sales-Reps to fire");
+  save.SalesRepsActive = save.SalesReps;
+}
+
+function paySalesReps(){
+  let wage = save.SalesReps * probs.SalesRepTickCost;
+  if(wage>save.Money) {
+    error('Cannot pay Sales Reps. They went on strike!');
+    save.SalesRepsActive = 0;
+    return;
+  } 
+  save.Money -= wage;
+  save.SalesRepsActive = save.SalesReps;
 }

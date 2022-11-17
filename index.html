@@ -145,14 +145,24 @@
 		  </tr>
 	  </table>
 
-	      <p> 
+	      <p class="buttons"> 
 	        <button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
 		    <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="visibility: hidden;">Buy 100 Steelbars</button>
 	      </p>
 	  </ul>
     </div>
-    <div class="sec" style="visibility: hidden;">
-	  <h2>Marketing</h2>
+    <div class="sec" style="visibility: hidden;" id="Marketing">
+	    <h2>Marketing</h2>
+		<table>
+			<tr>
+				<td>Sales Rep</td>
+				<td id="SalesRepCount">0</td>
+				<td>
+					<button onclick="hireSalesRep(1n)">Hire (<span id="SalesRepCost">$0</span>)</button>
+					<button onclick="fireSalesRep(1n)">Fire</button>
+				</td>
+			</tr>
+		</table>
 	</div>
     <div class="sec" style="visibility: hidden;">
       <h2>Research</h2>
