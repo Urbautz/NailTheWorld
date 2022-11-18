@@ -77,7 +77,7 @@ function updateVisibility(){
             document.getElementById(limit.Show).classList.remove('hidden');
           }
           
-          document.getElementById(limit.Show).style.visibility = "visible";
+          document.getElementById(limit.Show).style.display = "inline";
         } else {
           console.log('Element to unlock does not exist: '+ limit.Show);
         }

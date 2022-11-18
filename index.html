@@ -41,32 +41,34 @@
 	  </table>	
       <div class="buttons">
           <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
-          <button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button>
-		  <button id="press100"  onclick="makeNail(100n);" style="visibility: hidden;">Press 100 Nails</button>
+          <button id="press10"  onclick="makeNail(10n);" style="display: none;">Press 10 Nails</button>
+		  <button id="press100"  onclick="makeNail(100n);" style="display: none;">Press 100 Nails</button>
 	  </div>
-    	<table id='AutoPress' style="visibility: hidden;">
+		<div id='AutoPress' style="display: none;">
+    	<table>
 			<tr>
-				<th>Autopresses</th>
-				<th>Price</th>
-				<th>Buy</th>
+				<th>Type</th>
+				<th>Total</th>
+				<th>%</th>
 			</tr>
 			<tr>
 				<td id="AutoPressNo">0</td>
 				<td id="AutoPressPrice">$5.00</td>
 				<td>
 					<button id="buyautopress1" onclick="buyAutoPress(1n);">+1</button>
-					<button id="buyAutopress10" onclick="buyAutoPress(10n);" style="visibility: hidden;">+10</button>
+					<button id="buyAutopress10" onclick="buyAutoPress(10n);" style="display: none;">+10</button>
 				</td>
 			</tr>
 		</table>
+		</div>
     </div>
 		  
-    <div class="sec" id="Steelbars" style="visibility: hidden;">
+    <div class="sec" id="Steelbars" style="display: none;">
       <h2>Steelbars</h2>
 	  <ul class="buttons"> 
 	    <li> 
 	      <button id="BuySteelbar" onclick="buySteelbar(1n)">Buy Steelbar</button>
-		  <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="visibility: hidden;">Buy 100 Steelbars</button>
+		  <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="display: none;">Buy 100 Steelbars</button>
 	    </li>
 	  </ul>
     </div>
@@ -74,14 +76,14 @@
   </div>
   <div class="col">
 	  
-    <div class="sec" id="Storage" style="visibility: hidden;">
+    <div class="sec" id="Storage" style="display: none;">
          <h2>Storage</h2>
 		<table>
 
 			<tr>
 				<th>Garages</th>
 				<td id="StorageGarageCount">0</td>
-				<td><button id="buyGarage" onclick="buyGarage(1n);" title="$5000" style="visibility: hidden;">Buy a Garage</button></td>
+				<td><button id="buyGarage" onclick="buyGarage(1n);" title="$5000" style="display: none;">Buy a Garage</button></td>
 			</tr>
 			<tr>
 				<th>Warehouse Small</th>
@@ -116,18 +118,18 @@
 		</div>
     </div>
 	  
-    <div class="sec" class="Power" style="visibility: hidden;" >
+    <div class="sec" class="Power" style="display: none;" >
       <h2>Power</h2>
     </div>
   </div>
   <div class="col">
-	<div class="sec" id="Bank" style="visibility: hidden;">
+	<div class="sec" id="Bank" style="display: none;">
       <h2>Bank</h2>
 	  <p id="Money">$ 0</p>
     </div>
 
 	  
-    <div class="sec" id="Sales" style="visibility: hidden;">
+    <div class="sec" id="Sales" style="display: none;">
       <h2>Sales</h2>		
 	  <table>
 		  <tr>
@@ -148,11 +150,11 @@
 
 	      <p class="buttons"> 
 	        <button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
-		    <button id="Sell2500" onclick="SellNails(2500n)" style="visibility: hidden;">Sell 2500 Nails</button>
+		    <button id="Sell2500" onclick="SellNails(2500n)" style="display: none;">Sell 2500 Nails</button>
 	      </p>
 	  </ul>
     </div>
-    <div class="sec" style="visibility: hidden;" id="Marketing">
+    <div class="sec" style="display: none;" id="Marketing">
 	    <h2>Marketing</h2>
 		<table>
 			<tr>
@@ -165,7 +167,7 @@
 			</tr>
 		</table>
 	</div>
-    <div class="sec" style="visibility: hidden;">
+    <div class="sec" style="display: none;">
       <h2>Research</h2>
     </div>
 

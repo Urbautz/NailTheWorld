@@ -5,7 +5,8 @@ html, body {
   margin:0;
   padding:0;
   height:100vh;
-  overflow:hidden;
+  overflow-x:hover;
+  overflow-y:auto;
   background-image: linear-gradient(300deg, rgb(45, 101, 147), black); 
 }
 
