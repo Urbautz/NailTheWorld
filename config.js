@@ -12,11 +12,13 @@ const limits = [
   {LimitLow:             800n,                                   Show:'Bank'},
   {LimitLow:             950n,                                   Show:'Steelbars'},
   {LimitLow:            2000n,                                   Show:'Sales'},
+  {LimitLow:            2500n,                                   Show:'press100'},
   {LimitLow:            3000n,                                   Show:'AutoPress'},
   {LimitLow:            5000n,                                   Show:'BuySteelbar100'},
   {LimitLow:            7000n,                                   Show:'buyGarage'},
-  {LimitLow:           25000n,  Other:{AutoPress: 25n},          Show:'buyAutopress10'},
+  {LimitLow:           25000n,  Other:{AutoPress: 100n},          Show:'buyAutopress10'},
   {LimitLow:           50000n,                                   Show:'Marketing'},
+  {LimitLow:           75000n,                                   Show:'Sell2500'},
   {LimitLow:          500000n,  Other:{StorageGarage: 5n},       Show:'StorageWarehouseSmall'}
 ]
 
@@ -30,7 +32,7 @@ const probs = {
   PriceChangeProb: 0.3,
   PriceIncreaseChance: 0.5001,
   BaseSalesprice: 500n, 
-  AutoPressPriceFactor: 125n, // 25%
+  AutoPressPriceFactor: 108n, // 25%
   SalesRepHireBaseCost: 100000n, // 1000
   SalesRepHireCostFactor:108n,
   SalesRepTickCost:66n // 66 Cent pro tick

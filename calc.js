@@ -73,7 +73,6 @@ function changeNailPrice(value) {
   } else {
     error('You cannot sell below ' + formatBigint(formatBigInt,0,settings.Currency) );
   }
-  updateDemand(0n, false);
   updateView();
 }
 
@@ -83,10 +82,10 @@ function updateDemand(changeby=0n, refactor=true){
   let pricedeviation = (probs.BaseSalesprice - save.Price) *100n / probs.BaseSalesprice;
   if(refactor) { 
       save.Demand += save.Demand * pricedeviation / 100n;
+      if(pricedeviation < 1) 
+         pricedeviation = 1; 
+      save.Demand += save.SalesReps * BigInt(pricedeviation) * BigInt(getRandom(5,200));
   }
-  console.log(pricedeviation);
-  if(pricedeviation < 1) pricedeviation = 1; 
-  save.Demand += save.SalesReps * BigInt(pricedeviation) * BigInt(getRandom(5,200));
   
   console.log('Demand changed from '+d_old+' to '+save.Demand);
 }
@@ -101,7 +100,7 @@ function SellNails(count=100n){
   save.NailsInStorage -= count;
   save.Money += count * save.Price;
   console.log('Sold '+count+'Nails for '+ (count * save.Price));
-  updateDemand(-100n,true)
+  updateDemand(-1n*count,false);
   updateView();
 }
 
@@ -146,7 +145,6 @@ function hireSalesRep(count=1n,cost=getSalesRepCost()){
   save.SalesReps++;
   save.SalesRepsActive = save.SalesReps++
   console.log('Salesrep hired');
-  doSave();
 }
 
 function fireSalesRep(count=1n){

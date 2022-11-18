@@ -42,8 +42,9 @@
       <div class="buttons">
           <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
           <button id="press10"  onclick="makeNail(10n);" style="visibility: hidden;">Press 10 Nails</button>
+		  <button id="press100"  onclick="makeNail(100n);" style="visibility: hidden;">Press 100 Nails</button>
 	  </div>
-		<table>
+    	<table id='AutoPress' style="visibility: hidden;">
 			<tr>
 				<th>Autopresses</th>
 				<th>Price</th>
@@ -147,7 +148,7 @@
 
 	      <p class="buttons"> 
 	        <button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
-		    <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="visibility: hidden;">Buy 100 Steelbars</button>
+		    <button id="Sell2500" onclick="SellNails(2500n)" style="visibility: hidden;">Sell 2500 Nails</button>
 	      </p>
 	  </ul>
     </div>

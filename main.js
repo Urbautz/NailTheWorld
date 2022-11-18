@@ -2,6 +2,7 @@
 
 let save = {
   Tick: 0n,
+  LastError: '',
   Nails: 0n,
   NailsPerTick: 0n,
   StorageGarage: 1n,
@@ -20,7 +21,7 @@ let save = {
 };
 
 function load() {
-  updateView();
+  
   // load settings 
  let stringed = localStorage.getItem('setting');
   if(stringed != null )
@@ -48,6 +49,7 @@ function load() {
   }
   settings.Pause = false;
   updateView();
+  updateVisibility();
   // Start Ticking
   setInterval(tick, 1000);
 }
@@ -58,6 +60,7 @@ function tick() {
     return;
   }
   save.Tick += 1n;
+  save.LastError = null;
   let tikmod = save.Tick.toString().charAt(save.Tick.toString().length-1);
   console.log('Ticking ' +save.Tick );
 
@@ -72,10 +75,15 @@ function tick() {
     console.log("Big tick");
     randomizePrices();
     updateDemand(0n, true);
+    doSave();
+    console.log('BIG Tick '+save.Tick+' done, took ' + ( window.performance.now() - start) );
+  } else {
+      updateView();
+      console.log('Tick '+save.Tick+' done, took ' + ( window.performance.now() - start) );
   }
   
-  doSave();
-  console.log('Tick done, took ' + ( window.performance.now() - start) );
+
+
 }
 
 function doSave() {
@@ -89,14 +97,18 @@ function doSave() {
 function DeleteSave() {
   if(confirm("Delete Save, are you sure?")) {
     console.log("Save deleted");
-    localStorage.clear();
+    localStorage.removeItem("save");
     window.location.reload(false);
   }
 }
 
 function error(text) {
   console.log('ERROR: ' + text);
+  if(text==save.LastError) return;
+  
+  save.LastError = text;
   settings.Pause=true;
+  updateView();
   alert(text
         + " Game paused!");
 }
@@ -157,7 +169,7 @@ function importSave(input){
 function closeModal(elementname) {
   console.log('Closing Modal window '+elementname);
   let modal = document.getElementById(elementname);
-  updateView();
+  tooglepause(false);
   modal.style.display = "none";
 }
 
@@ -165,16 +177,20 @@ function ShowModal(elementname) {
   console.log('Showing Modal window '+elementname);
   updateView();
   let modal = document.getElementById(elementname);
+  tooglepause(true);
   modal.style.display = 'block';
 }
 
-function tooglepause() {
-  if(settings.Pause) {
-    settings.Pause = false;
-
-  }
-  else {
-    settings.Pause = true;
+function tooglepause(pause=null) {
+  if(pause==null) {
+    if(settings.Pause) {
+      settings.Pause = false;
+    }
+    else {
+      settings.Pause = true;
+    }
+  } else {
+    settings.Pause = pause;
   }
   updateView();
 }

@@ -25,7 +25,7 @@ function formatBigInt(value,cutby=0,format=null) {
     ret = format.replace('n',ret);
   }
   
-  console.log('Format ' + value +' to ' + ret);
+  //console.log('Format ' + value +' to ' + ret);
   return ret;
 
 }
@@ -72,7 +72,7 @@ function updateVisibility(){
       } // end check other
       if (allow) {
         if(document.getElementById(limit.Show) != null) {
-          console.log('unlock: '+ limit.Show);
+          //console.log('unlock: '+ limit.Show);
           if(document.getElementById(limit.Show).className == 'hidden') {
             document.getElementById(limit.Show).classList.remove('hidden');
           }
@@ -121,7 +121,6 @@ function updateView(){
 
   getSalesRepCost()
   console.log("did run updateView");
-  updateVisibility();
 }
 
 function getRandom(min=0, max=100) {
