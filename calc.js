@@ -7,21 +7,25 @@ function getStorageCap() {
   return cap;
 }
 
-function makeNail(count=0n) {
+function makeNail(count=0n, power=false) {
   // Check Capacity
   let nailstomake = BigInt(count);
   if (getStorageCap() < save.SteelbarsByK + save.NailsInStorage + nailstomake ) {
     error("Warehouse is full");
     nailstomake = SteelbarsByK + save.NailsInStorage + nailstomake - getStorageCap();
   }
-  if(save.SteelbarsByK >= nailstomake )
-  {
+  if(save.SteelbarsByK < nailstomake )
+     return error("Not enough steel!");
+  else {
+    if(power){
+      if (!consumePower(nailstomake*probs.PowerConAutoPress)){
+        return;
+      }
+    }
     save.Nails += nailstomake;
     save.NailsInStorage += nailstomake;
     save.SteelbarsByK = save.SteelbarsByK - nailstomake;
     console.log(nailstomake+" Nails made. Steel left: "+save.SteelbarsByK);
-  } else {
-    error("Not enough steel!");
   }
   
 }
@@ -164,4 +168,25 @@ function paySalesReps(){
   } 
   save.Money -= wage;
   save.SalesRepsActive = save.SalesReps;
+}
+
+
+function consumePower(power=0n) {
+  if(save.PowerStored > power) {
+    save.PowerStored -= power;
+    save.PowerConsumed += power;
+    console.log('Consumed Power from Storage:' +power)
+    return true;
+  }
+  let ptp = power - save.PowerStored;
+  console.log('Reserved all Power from Storage:'+ save.PowerStored)
+  if(save.Money > ptp * save.PowerCost / 1000n) {
+    save.Money -= ptp * save.PowerCost / 1000n;
+    console.log('Bought power for Money: ' + ptp);
+    save.PowerStored = 0n;
+    save.PowerConsumed += power;
+    return true;
+  }
+  console.log('Not enough Money to buy power.');
+  return false;
 }

@@ -17,7 +17,11 @@ let save = {
   AutoPress:0n,
   AutoPressPrice:1000n, // 10 Dollar
   SalesReps:0n,
-  SalesRepsActive:0n
+  SalesRepsActive:0n,
+  PowerCost:240n,
+  PowerStored:0n,
+  PowerStoreCap:0n,
+  PowerConsumed:0n
 };
 
 function load() {
@@ -41,8 +45,10 @@ function load() {
     if(backAgain != null) 
     { 
       //Savegame Version updates:
-      if(!backAgain.hasOwnProperty('SalesReps')) backAgain.SalesReps = 0n;
-      if(!backAgain.hasOwnProperty('SalesRepsActive')) backAgain.SalesRepsActive = backAgain.SalesReps;
+      if(!backAgain.hasOwnProperty('PowerCost')) backAgain.PowerCost = 240n;
+      if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStored = 0n;
+      if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStoreCap = 0n;
+      if(!backAgain.hasOwnProperty('PowerConsumed')) backAgain.PowerConsumed = 0n;
       save = backAgain;
       console.log("save loaded");
     }
@@ -61,13 +67,14 @@ function tick() {
   }
   save.Tick += 1n;
   save.LastError = null;
+  save.PowerConsumed = 0n;
   let tikmod = save.Tick.toString().charAt(save.Tick.toString().length-1);
   console.log('Ticking ' +save.Tick );
 
   // every tick
   let nps = save.AutoPress;
   save.NailsPerTick = nps;
-  makeNail(nps);
+  makeNail(nps,true);
   paySalesReps();
   updateDemand(getRandom(0, 18), false);
   // every 10 ticks

@@ -43,5 +43,5 @@ const probs = {
   SalesRepHireCostFactor:108n,
   SalesRepTickCost:66n, // 66 Cent pro tick
   PowerConAutoPress: 3n, // 3KWt
-  PowerCostBase:3114
+  PowerCostBase:240
 };
