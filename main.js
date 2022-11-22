@@ -3,6 +3,8 @@
 let save = {
   Tick: 0n,
   LastError: '',
+  Time:0n,
+  Weather:0n,
   Nails: 0n,
   NailsPerTick: 0n,
   StorageGarage: 1n,
@@ -21,7 +23,9 @@ let save = {
   PowerCost:240n,
   PowerStored:0n,
   PowerStoreCap:0n,
-  PowerConsumed:0n
+  PowerConsumed:0n,
+  Solar:0n,
+  WindMill:0n
 };
 
 function load() {
@@ -49,6 +53,10 @@ function load() {
       if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStored = 0n;
       if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStoreCap = 0n;
       if(!backAgain.hasOwnProperty('PowerConsumed')) backAgain.PowerConsumed = 0n;
+      if(!backAgain.hasOwnProperty('Solar')) backAgain.Solar = 0n;
+      if(!backAgain.hasOwnProperty('WindMill')) backAgain.WindMill = 0n;
+      if(!backAgain.hasOwnProperty('Time')) backAgain.Time = 0n;
+      if(!backAgain.hasOwnProperty('Weather')) backAgain.Weather = 0n;
       save = backAgain;
       console.log("save loaded");
     }

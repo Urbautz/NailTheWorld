@@ -43,5 +43,35 @@ const probs = {
   SalesRepHireCostFactor:108n,
   SalesRepTickCost:66n, // 66 Cent pro tick
   PowerConAutoPress: 3n, // 3KWt
-  PowerCostBase:240
+  PowerCostBase:240,
+  SolarCost: 50000n,
+  WindMillCost: 2500000n
 };
+
+const time = [
+  {Name: 'Early Morning', SolarOut:25n},
+  {Name: 'Morning', SolarOut:75n},
+  {Name: 'Noon', SolarOut:100n},
+  {Name: 'Early Afternoon', SolarOut:100n},
+  {Name: 'Late Afternoon', SolarOut:75n},
+  {Name: 'Evening', SolarOut:50n},
+  {Name: 'Late Evening', SolarOut:25n},
+  {Name: 'Night', SolarOut:0n},
+  {Name: 'Night', SolarOut:0n},
+  {Name: 'Night', SolarOut:0n},
+]
+
+const weather = [
+  {Name: 'Sunny', SolarOut: 100n, WindOut: BigInt(getRandom(0,50)) },
+  {Name: 'Sunny', SolarOut: 100n, WindOut: BigInt(getRandom(0,50)) },
+  {Name: 'Sunny', SolarOut: 100n, WindOut: BigInt(getRandom(0,50)) },
+  {Name: 'Sunny', SolarOut: 100n, WindOut: BigInt(getRandom(0,50)) },
+  {Name: 'Cloudy', SolarOut: BigInt(getRandom(25,75)), WindOut: BigInt(getRandom(25,75)) },
+  {Name: 'Cloudy', SolarOut: BigInt(getRandom(25,75)), WindOut: BigInt(getRandom(25,75)) },
+  {Name: 'Cloudy', SolarOut: BigInt(getRandom(25,75)), WindOut: BigInt(getRandom(25,75)) },
+  {Name: 'Rain', SolarOut: BigInt(getRandom(0,50)), WindOut: BigInt(getRandom(50,100)) },
+  {Name: 'Rain', SolarOut: BigInt(getRandom(0,50)), WindOut: BigInt(getRandom(50,100)) },
+  {Name: 'Rain', SolarOut: BigInt(getRandom(0,50)), WindOut: BigInt(getRandom(50,100)) },
+  {Name: 'Stormy', SolarOut: BigInt(getRandom(0,100)), WindOut: 100n },
+  {Name: 'Thundstorm', SolarOut: 0n, WindOut: 100n },
+]

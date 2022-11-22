@@ -190,3 +190,17 @@ function consumePower(power=0n) {
   console.log('Not enough Money to buy power.');
   return false;
 }
+
+function buySolar(count=1n) {
+  if(save.Money < count * probs.SolarCost) return;
+  save.Money -= count * probs.SolarCost;
+  save.Solar += count;
+  console.log('Bought solar');
+}
+
+function buyWindMill(count=1n) {
+  if(save.Money < count * probs.WindMillCost) return;
+  save.Money -= count * probs.WindMillCost;
+  save.WindMill += count;
+  console.log('Bought Windmill');
+}
