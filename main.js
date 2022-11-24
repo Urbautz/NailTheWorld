@@ -24,6 +24,7 @@ let save = {
   PowerStored:0n,
   PowerStoreCap:0n,
   PowerConsumed:0n,
+  PowerProduced:0n,
   Solar:0n,
   WindMill:0n
 };
@@ -51,12 +52,13 @@ function load() {
       //Savegame Version updates:
       if(!backAgain.hasOwnProperty('PowerCost')) backAgain.PowerCost = 240n;
       if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStored = 0n;
-      if(!backAgain.hasOwnProperty('PowerStored')) backAgain.PowerStoreCap = 0n;
+      if(!backAgain.hasOwnProperty('PowerStoreCap')) backAgain.PowerStoreCap = 0n;
       if(!backAgain.hasOwnProperty('PowerConsumed')) backAgain.PowerConsumed = 0n;
       if(!backAgain.hasOwnProperty('Solar')) backAgain.Solar = 0n;
       if(!backAgain.hasOwnProperty('WindMill')) backAgain.WindMill = 0n;
       if(!backAgain.hasOwnProperty('Time')) backAgain.Time = 0;
       if(!backAgain.hasOwnProperty('Weather')) backAgain.Weather = 0;
+      if(!backAgain.hasOwnProperty('PowerProduced')) backAgain.PowerProduced = 0;
       save = backAgain;
       console.log("save loaded");
     }
@@ -80,12 +82,13 @@ function tick() {
   console.log('Ticking ' +save.Tick );
 
   // every tick
-  let power = producePower();
+  makePower();
   let nps = save.AutoPress;
   save.NailsPerTick = nps;
   makeNail(nps,true);
   paySalesReps();
   updateDemand(getRandom(0, 18), false);
+  clearPowerStorage();
   // every 10 ticks
   if(tikmod == "0"){
     updateWeather();
@@ -98,7 +101,6 @@ function tick() {
       updateView();
       console.log('Tick '+save.Tick+' done, took ' + ( window.performance.now() - start) );
   }
-
 
 }
 

@@ -191,6 +191,26 @@ function consumePower(power=0n) {
   return false;
 }
 
+function makePower(){
+  let solar = save.Solar * 1000n;
+  solar = solar * time[save.Time].SolarOut / 100n;
+  solar = solar * weather[save.Weather].SolarOut / 100n;
+  let windmill = save.WindMill * 100000n;
+  windmill = windmill * weather[save.Weather].WindOut / 100n;
+  save.PowerProduced = solar + windmill;
+  console.log('Procued Power: '+solar+' Solar and '+windmill+' Wind');
+  save.PowerStored += save.PowerProduced;
+}
+
+function clearPowerStorage(){
+  if  (save.PowerStored < save.PowerStoreCap)
+    return;
+  save.PowerStored = save.PowerStoreCap;
+  console.log('Set PowerStored to max Capacity');
+}
+
+
+
 function buySolar(count=1n) {
   if(save.Money < count * probs.SolarCost) return;
   save.Money -= count * probs.SolarCost;
@@ -203,10 +223,6 @@ function buyWindMill(count=1n) {
   save.Money -= count * probs.WindMillCost;
   save.WindMill += count;
   console.log('Bought Windmill');
-}
-
-function producePower() {
-  return 0;
 }
 
 function updateWeather() {
