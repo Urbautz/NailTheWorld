@@ -210,6 +210,11 @@ th, td {
     border-radius: 5px;
 }
 
+.footertd {
+  text-align:center;
+  width:33%;
+}
+
 table {
   margin: auto;
   margin-bottom:8px;
@@ -219,7 +224,12 @@ table {
   padding: 1px;
   border-radius: 8px;
   box-shadow: 2px 2px 2px rgba(65, 121, 167,.2);
-  
+}
+
+.footertable {
+  margin-top:8px;
+  margin-bottom:0px;
+  min-width:50%;
 }
 
 /* The Modal (background) */

@@ -204,3 +204,20 @@ function buyWindMill(count=1n) {
   save.WindMill += count;
   console.log('Bought Windmill');
 }
+
+function producePower() {
+  return 0;
+}
+
+function updateWeather() {
+  if(BinaryRandom(probs.WeatherChangeProb)){
+    save.Weather = getRandom(0,weather.length-1);
+    console.log('Weather is now: ' + weather[save.Weather].Name);
+  }
+  if(save.Time >= (time.length-1))
+    save.Time = 0;
+   else
+    save.Time++;
+   console.log('Time is now: ' + time[save.Time].Name);
+   return;
+}

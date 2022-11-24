@@ -45,7 +45,8 @@ const probs = {
   PowerConAutoPress: 3n, // 3KWt
   PowerCostBase:240,
   SolarCost: 50000n,
-  WindMillCost: 2500000n
+  WindMillCost: 2500000n,
+  WeatherChangeProb:0.2
 };
 
 const time = [

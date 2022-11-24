@@ -119,6 +119,10 @@ function updateView(){
   document.getElementById('SalesRepCount').innerHTML =           formatBigInt(save.SalesReps);
   document.getElementById('SalesRepCost').innerHTML =           formatBigInt(getSalesRepCost(), 2, settings.Currency);
 
+  document.getElementById('Time').innerHTML =           time[save.Time].Name;
+  document.getElementById('Weather').innerHTML =           weather[save.Weather].Name;
+  document.getElementById('Tick').innerHTML =           formatBigInt(save.Tick);;
+
   getSalesRepCost()
   console.log("did run updateView");
 }

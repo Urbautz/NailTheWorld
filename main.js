@@ -3,8 +3,8 @@
 let save = {
   Tick: 0n,
   LastError: '',
-  Time:0n,
-  Weather:0n,
+  Time:0,
+  Weather:0,
   Nails: 0n,
   NailsPerTick: 0n,
   StorageGarage: 1n,
@@ -55,8 +55,8 @@ function load() {
       if(!backAgain.hasOwnProperty('PowerConsumed')) backAgain.PowerConsumed = 0n;
       if(!backAgain.hasOwnProperty('Solar')) backAgain.Solar = 0n;
       if(!backAgain.hasOwnProperty('WindMill')) backAgain.WindMill = 0n;
-      if(!backAgain.hasOwnProperty('Time')) backAgain.Time = 0n;
-      if(!backAgain.hasOwnProperty('Weather')) backAgain.Weather = 0n;
+      if(!backAgain.hasOwnProperty('Time')) backAgain.Time = 0;
+      if(!backAgain.hasOwnProperty('Weather')) backAgain.Weather = 0;
       save = backAgain;
       console.log("save loaded");
     }
@@ -80,6 +80,7 @@ function tick() {
   console.log('Ticking ' +save.Tick );
 
   // every tick
+  let power = producePower();
   let nps = save.AutoPress;
   save.NailsPerTick = nps;
   makeNail(nps,true);
@@ -87,6 +88,7 @@ function tick() {
   updateDemand(getRandom(0, 18), false);
   // every 10 ticks
   if(tikmod == "0"){
+    updateWeather();
     console.log("Big tick");
     randomizePrices();
     updateDemand(0n, true);
@@ -96,7 +98,6 @@ function tick() {
       updateView();
       console.log('Tick '+save.Tick+' done, took ' + ( window.performance.now() - start) );
   }
-  
 
 
 }
