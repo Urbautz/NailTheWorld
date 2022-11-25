@@ -123,12 +123,20 @@
 				<td id="PowerConsumption" title="Kilowatt per Tick">0 kWt</td>
 			</tr>
 			<tr>
+				<td>Price/mWt</td>
+				<td id="PowerPrice" title="Price Per Megawatt-Tick">31.14</td>
+			</tr>
+			<tr>
 				<td>Own Production</td>
 				<td id="PowerProduction" title="Kilowatt per Tick">0 kWt</td>
 			</tr>
 			<tr>
-				<td>Price/mWt</td>
-				<td id="PowerPrice" title="Price Per Megawatt-Tick">31.14</td>
+				<td colspan=2 style="text-align:center">
+				  <div id="BuySolar" style="display: none; width: 100%;text-align:center" class="buttons">	
+				  <button onclick="buySolar()" title="$500">Buy Solar Panel</button>
+				  <button id="BuyWindmill" onclick="buyWindmill()" title="$50000" style="display: none;" >Buy Windmill</button>
+					  </div>
+				</td>
 			</tr>
 			<tr>
 				<td>Power Stored</td>
@@ -138,15 +146,15 @@
 				<td>Power Storage Capacity</td>
 				<td id="PowerCap"  title="Kilowatt per Tick">0</td>
 			</tr>
-		</table>
-		<div class="buttons">
-			  <button id="BuySolar" onclick="buySolar()" title="$500" style="display: none;" >Buy Solar Panel</button>
-			  <button id="BuyWindmill" onclick="buyWindmill()" title="$50000" style="display: none;" >Buy Solar Panel</button>
-		</div>
-		<div class="buttons">
-			  <button id="BuyBattery1" onclick="buyBattery(1n)" title="$1000" style="display: none;" >Buy Battery</button>
+			<tr>
+				<td colspan=2 style="text-align:center">
+				  <div id="BuyBattery1" style="display: none; width: 100%;text-align:center" class="buttons">	
+			  <button onclick="buyBattery(1n)" title="$1000">Buy Battery</button>
 			  <button id="BuyBattery100" onclick="buyBattery(100n)" title="$100000" style="display: none;" >Buy 100 Batteries</button>
-		</div>
+				  </div>
+				</td>
+			</tr>
+		</table>
     </div>
   </div>
   <div class="col">
