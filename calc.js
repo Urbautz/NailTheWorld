@@ -53,9 +53,10 @@ function buySteelbar(count=1n){
 }
 
 function randomizePrices(){
+   // steelbar
    if(BinaryRandom(probs.PriceChangeProb)){
      let change = 0;
-     console.log('Price changes happening');
+     console.log('Steelbar price changes happening');
      // SteelbarCost
      if(BinaryRandom(probs.PriceIncreaseChance)) {
 
@@ -64,6 +65,23 @@ function randomizePrices(){
      } else {
        save.SteelbarCost -= save.SteelbarCost / BigInt(getRandom(40,160));
        console.log('Price decreased ' + save.SteelbarCost);
+     }
+   } else {
+     console.log('No Price Change!');
+   }
+  
+   //Power
+   if(BinaryRandom(probs.PriceChangeProb)){
+     let change = 0;
+     console.log('Power price changes happening');
+     // SteelbarCost
+     if(BinaryRandom(probs.PriceIncreaseChance)) {
+
+       save.PowerCost += save.PowerCost / BigInt(getRandom(40,160));
+       console.log('Price increased ' + save.PowerCost );
+     } else {
+       save.PowerCost -= save.PowerCost / BigInt(getRandom(40,160));
+       console.log('Price decreased ' + save.PowerCost);
      }
    } else {
      console.log('No Price Change!');
@@ -218,11 +236,12 @@ function buySolar(count=1n) {
   console.log('Bought solar');
 }
 
-function buyWindMill(count=1n) {
-  if(save.Money < count * probs.WindMillCost) return;
-  save.Money -= count * probs.WindMillCost;
-  save.WindMill += count;
-  console.log('Bought Windmill');
+
+function buyBattery(count=1n) {
+  if(save.Money < count * probs.BatteryCost) return;
+  save.Money -= count * probs.BatteryCost;
+  save.PowerStoreCap += count;
+  console.log('Bought Battery');
 }
 
 function updateWeather() {

@@ -110,19 +110,26 @@ function updateView(){
   document.getElementById('StorageTotal').innerHTML =            (save.SteelbarsByK+save.NailsInStorage) * 100n / storagecap;
   document.getElementById('StorageCap').innerHTML =              formatBigInt(storagecap);
 
-  document.getElementById('Price').innerHTML =              formatBigInt(save.Price,2,settings.Currency);
+  document.getElementById('Price').innerHTML =               formatBigInt(save.Price,2,settings.Currency);
   document.getElementById('Demand').innerHTML =              formatBigInt(save.Demand,0);
 
   document.getElementById('AutoPressNo').innerHTML =              formatBigInt(save.AutoPress,0);
   document.getElementById('AutoPressPrice').innerHTML =           formatBigInt(save.AutoPressPrice,2,settings.Currency);
   
   document.getElementById('SalesRepCount').innerHTML =           formatBigInt(save.SalesReps);
-  document.getElementById('SalesRepCost').innerHTML =           formatBigInt(getSalesRepCost(), 2, settings.Currency);
+  document.getElementById('SalesRepCost').innerHTML =            formatBigInt(getSalesRepCost(), 2, settings.Currency);
 
-  document.getElementById('Time').innerHTML =           time[save.Time].Name;
+  document.getElementById('Time').innerHTML =              time[save.Time].Name;
   document.getElementById('Weather').innerHTML =           weather[save.Weather].Name;
-  document.getElementById('Tick').innerHTML =           formatBigInt(save.Tick);;
+  document.getElementById('Tick').innerHTML =              formatBigInt(save.Tick);
 
+  document.getElementById('PowerConsumption').innerHTML =           formatBigInt(save.PowerConsumed,0,settings.PowerFormat);
+  document.getElementById('PowerCost').innerHTML =           formatBigInt(save.PowerCost,2,settings.Currency);
+  document.getElementById('PowerProduced').innerHTML =           formatBigInt(save.PowerProduced,0,settings.PowerFormat);
+  document.getElementById('PowerStored').innerHTML =           formatBigInt(save.PowerStored,0,settings.PowerFormat);
+  document.getElementById('PowerStoreCap').innerHTML =           formatBigInt(save.PowerStoreCap,0,settings.PowerFormat);
+
+  
   getSalesRepCost()
   console.log("did run updateView");
 }
