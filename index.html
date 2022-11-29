@@ -1,277 +1,285 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
-
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width = device-width, initial-scale = 1.0" />  
-	<title>Nailed it!</title>
-	<link rel="stylesheet" href="style.css">
-  <script src="helpers.js"></script>
-  <script src="config.js"></script>
-  <script src="calc.js"></script>
-  <script src="main.js"></script>
-</head>
-
-<body onload="load();">
-<div class="container">
-<!-- header -->
-<header>
-	<h1>Nail it!</h1>
-</header>
-   
-     
-<main>
-  <div class="col">
-    <div class="sec">
-      <h2>Nails</h2>
-	  <table>
-		  <tr>
-			  <td >
-				  Total Produced
-			  </td>
-			  <td id="NailsTotal">0</td>
-		  </tr>
-		  <tr>
-			  <td id="NailsTotal">
-				  Nails Per Tick
-			  </td>
-			  <td id="NailsProduction">0</td>
-		  </tr>
-		  
-	  </table>	
-      <div class="buttons">
-          <button id="press1" onclick="makeNail(1n);">Press a Nail</button>
-          <button id="press10"  onclick="makeNail(10n);" style="display: none;">Press 10 Nails</button>
-		  <button id="press100"  onclick="makeNail(100n);" style="display: none;">Press 100 Nails</button>
-	  </div>
-		<div id='AutoPress' style="display: none;">
-    	<table>
-
-			<tr>
-				<td>Auto press</td>
-				<td id="AutoPressNo">0</td>
-				<td id="AutoPressPrice">$5.00</td>
-				<td>
-					<button id="buyautopress1" onclick="buyAutoPress(1n);">+1</button>
-					<button id="buyAutopress10" onclick="buyAutoPress(10n);" style="display: none;">+10</button>
-				</td>
-			</tr>
-		</table>
-		</div>
-    </div>
-		  
-    <div class="sec" id="Steelbars" style="display: none;">
-      <h2>Steelbars</h2>
-	  <ul class="buttons"> 
-	    <li> 
-	      <button id="BuySteelbar" onclick="buySteelbar(1n)">Buy Steelbar</button>
-		  <button id="BuySteelbar100" onclick="buySteelbar(100n)" style="display: none;">Buy 100 Steelbars</button>
-	    </li>
-	  </ul>
-    </div>
-		
-  </div>
-  <div class="col">
-	  
-    <div class="sec" id="Storage" style="display: none;">
-         <h2>Storage</h2>
-		<table>
-
-			<tr>
-				<th>Garages</th>
-				<td id="StorageGarageCount">0</td>
-				<td><button id="buyGarage" onclick="buyGarage(1n);" title="$5000" style="display: none;">Buy a Garage</button></td>
-			</tr>
-			<tr>
-				<th>Warehouse Small</th>
-				<td id="StorageWarehouseSmallCount">0</td>
-				<td></td>
-			</tr>
-		</table>
-		<table>
-					<tr>
-				<th>Type</th>
-				<th>Total</th>
-				<th>%</th>
-			</tr>
-			<tr>
-				<th>Nails</th>
-				<td id="NailsInStorage">0</td>
-				<td id="NailsInStoragePercent">0</td>
-			</tr>
-			<tr>
-				<th>Steelbars</th>
-				<td id="SteelbarsNo">0</td>
-				<td id="SteelbarsPercent">0</td>
-			</tr>
-			<tr>
-				<th>Capacity</th>
-				<th id="StorageCap">0</th>
-				<th  id="StorageTotal">0</th>
-			</tr>
-		</table>
-		<div class="buttons">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+		<title>Nailed it!</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="helpers.js"></script>
+		<script src="config.js"></script>
+		<script src="calc.js"></script>
+		<script src="main.js"></script>
+	</head>
+	<body onload="load();">
+		<div class="container">
 			
-		</div>
-    </div>
-	  
-    <div class="sec" id="Power" style="display: none;" >
-      <h2>Power</h2>
-		<table>
-			<tr>
-				<td>Current Consumption</td>
-				<td id="PowerConsumption" title="Kilowatt per Tick">0 kWt</td>
-			</tr>
-			<tr>
-				<td>Price/kWt</td>
-				<td id="PowerCost" title="Price Per Kilowatt/Tick">31.14</td>
-			</tr>
-			<tr>
-				<td>Own Production</td>
-				<td id="PowerProduced" title="Kilowatt per Tick">0 kWt</td>
-			</tr>
-			<tr>
-				<td colspan=2 style="text-align:center">
-				  <div id="BuySolar" style="display: none; width: 100%;text-align:center" class="buttons">	
-				  <button onclick="buySolar()" title="$500">Buy Solar Panel</button>
-				  <button id="BuyWindmill" onclick="buyWindmill()" title="$50000" style="display: none;" >Buy Windmill</button>
-					  </div>
-				</td>
-			</tr>
-			<tr>
-				<td>Power Stored</td>
-				<td id="PowerStored"  title="Kilowatt per Tick">0</td>
-			</tr>
-			<tr>
-				<td>Power Storage Capacity</td>
-				<td id="PowerStoreCap"  title="Kilowatt per Tick">0</td>
-			</tr>
-			<tr>
-				<td colspan=2 style="text-align:center">
-				  <div id="BuyBattery1" style="display: none; width: 100%;text-align:center" class="buttons">	
-			  <button onclick="buyBattery(1n)" title="$ 7500">Buy Battery</button>
-			  <button id="BuyBattery100" onclick="buyBattery(100n)" title="$ 750000" style="display: none;" >Buy 100 Batteries</button>
-				  </div>
-				</td>
-			</tr>
-		</table>
-    </div>
-  </div>
-  <div class="col">
-	<div class="sec" id="Bank" style="display: none;">
-      <h2>Bank</h2>
-	  <p id="Money">$ 0</p>
-    </div>
-
-	  
-    <div class="sec" id="Sales" style="display: none;">
-      <h2>Sales</h2>		
-	  <table>
-		  <tr>
-			  <td>Price/100</td>
-			  <td id="Price">$0</td>
-			  <td>
+			<!-- header -->
+			<header>
+				<h1>Nail it!</h1>
+			</header>
+			<main>
+				<div class="col">
+					<div class="sec">
+						<h2>Nails</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>
+										Total Produced
+									</td>
+									<td id="NailsTotal">0</td>
+								</tr>
+								<tr>
+									<td id="NailsTotal">
+										Nails Per Tick
+									</td>
+									<td id="NailsProduction">0</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="buttons">
+							<button id="press1" onclick="makeNail(1n);">Press a Nail</button>
+							<button id="press10" onclick="makeNail(10n);" style="display: none;">Press 10 Nails</button>
+							<button id="press100" onclick="makeNail(100n);" style="display: none;">Press 100 Nails</button>
+						</div>
+						<div id="AutoPress" style="display: none;">
+							<table>
+								<tbody>
+									<tr>
+										<td>Auto press</td>
+										<td id="AutoPressNo">0</td>
+										<td id="AutoPressPrice">$5.00</td>
+										<td>
+											<button id="buyautopress1" onclick="buyAutoPress(1n);">+1</button>
+											<button id="buyAutopress10" onclick="buyAutoPress(10n);" style="display: none;">+10</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="sec" id="Steelbars" style="display: none;">
+						<h2>Steelbars</h2>
+						<ul class="buttons">
+							<li>
+								<button id="BuySteelbar" onclick="buySteelbar(1n)">Buy Steelbar</button>
+								<button id="BuySteelbar100" onclick="buySteelbar(100n)" style="display: none;">Buy 100 Steelbars</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col">
+					<div class="sec" id="Storage" style="display: none;">
+						<h2>Storage</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Garages</th>
+									<td id="StorageGarageCount">0</td>
+									<td>
+										<button id="buyGarage" onclick="buyGarage(1n);" title="$5000" style="display: none;">Buy a Garage</button>
+									</td>
+								</tr>
+								<tr>
+									<th>Warehouse Small</th>
+									<td id="StorageWarehouseSmallCount">0</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<tbody>
+								<tr>
+									<th>Type</th>
+									<th>Total</th>
+									<th>%</th>
+								</tr>
+								<tr>
+									<th>Nails</th>
+									<td id="NailsInStorage">0</td>
+									<td id="NailsInStoragePercent">0</td>
+								</tr>
+								<tr>
+									<th>Steelbars</th>
+									<td id="SteelbarsNo">0</td>
+									<td id="SteelbarsPercent">0</td>
+								</tr>
+								<tr>
+									<th>Capacity</th>
+									<th id="StorageCap">0</th>
+									<th id="StorageTotal">0</th>
+								</tr>
+							</tbody>
+						</table>
+						<div class="buttons">
+						</div>
+					</div>
+					<div class="sec" id="Power" style="display: none;">
+						<h2>Power</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Current Consumption</td>
+									<td id="PowerConsumption" title="Kilowatt per Tick">0 kWt</td>
+								</tr>
+								<tr>
+									<td>Price/kWt</td>
+									<td id="PowerCost" title="Price Per Kilowatt/Tick">31.14</td>
+								</tr>
+								<tr>
+									<td>Own Production</td>
+									<td id="PowerProduced" title="Kilowatt per Tick">0 kWt</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align:center">
+										<div id="BuySolar" style="display: none; width: 100%;text-align:center" class="buttons">
+											<button onclick="buySolar()" title="$500">Buy Solar Panel</button>
+											<button id="BuyWindmill" onclick="buyWindmill()" title="$50000" style="display: none;">Buy Windmill</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Power Stored</td>
+									<td id="PowerStored" title="Kilowatt per Tick">0</td>
+								</tr>
+								<tr>
+									<td>Power Storage Capacity</td>
+									<td id="PowerStoreCap" title="Kilowatt per Tick">0</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align:center">
+										<div id="BuyBattery1" style="display: none; width: 100%;text-align:center" class="buttons">
+											<button onclick="buyBattery(1n)" title="$ 7500">Buy Battery</button>
+											<button id="BuyBattery100" onclick="buyBattery(100n)" title="$ 750000" style="display: none;">Buy 100 Batteries</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col">
+					<div class="sec" id="Bank" style="display: none;">
+						<h2>Bank</h2>
+						<p id="Money">$ 0</p>
+					</div>
+					<div class="sec" id="Sales" style="display: none;">
+						<h2>Sales</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Price/100</td>
+									<td id="Price">$0</td>
+									<td>
+										<p class="buttons">
+											<button id="priceplus" onclick="changeNailPrice(1)" class="small">&nbsp;+</button>
+											<button id="priceminus" onclick="changeNailPrice(-1)" class="small">&nbsp;-</button>
+										</p>
+									</td>
+								</tr>
+								<tr>
+									<td>Demand</td>
+									<td colspan="2" id="Demand">100</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="buttons">
+							<button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
+							<button id="Sell2500" onclick="SellNails(2500n)" style="display: none;">Sell 2500 Nails</button>
+						</p>
+					</div>
+					<div class="sec" style="display: none;" id="Marketing">
+						<h2>Marketing</h2>
+						<table>
+							<tbody>
+								<tr>
+									<td>Sales Rep</td>
+									<td id="SalesRepCount">0</td>
+									<td>
+										<button onclick="hireSalesRep(1n)">Hire (<span id="SalesRepCost">$0</span>)</button>
+										<button onclick="fireSalesRep(1n)">Fire</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="sec" style="display: none;">
+						<h2>Research</h2>
+					</div>
+				</div>
+			</main>
+			<footer>
+				<table class="footertable">
+					<tbody>
+						<tr>
+							<td class="footertd">
+								<span id="Tick" title="Tick">0</span>
+							</td>
+							<td class="footertd">
+								<span id="Time" title="Time of Day">Morning</span>
+							</td>
+							<td class="footertd" <span="" id="Weather" title="Weather">Sunny</td>
+						</tr>
+					</tbody>
+				</table>
 				<p class="buttons">
-				   <button id="priceplus" onclick="changeNailPrice(1)" class="small">&nbsp;+&nbsp;</button>
-				   <button id="priceminus" onclick="changeNailPrice(-1)" class="small">&nbsp;-&nbsp;</button> 
+					<button onclick="ShowModal('savegame')">Manage Save</button>
+					<button onclick="ShowModal('settings')">Settings</button>
+					<button onclick="tooglepause()" id="Pause" "="">Pause</button>
 				</p>
-			  </td>
-		  </tr>
-		  <tr>
-			  <td>Demand</td>
-			  <td colspan=2 id="Demand">100</td>
-		  </tr>
-	  </table>
-
-	      <p class="buttons"> 
-	        <button id="Sell" onclick="SellNails(100n)">Sell 100 Nails</button>
-		    <button id="Sell2500" onclick="SellNails(2500n)" style="display: none;">Sell 2500 Nails</button>
-	      </p>
-	  </ul>
-    </div>
-    <div class="sec" style="display: none;" id="Marketing">
-	    <h2>Marketing</h2>
-		<table>
-			<tr>
-				<td>Sales Rep</td>
-				<td id="SalesRepCount">0</td>
-				<td>
-					<button onclick="hireSalesRep(1n)">Hire (<span id="SalesRepCost">$0</span>)</button>
-					<button onclick="fireSalesRep(1n)">Fire</button>
-				</td>
-			</tr>
-		</table>
-	</div>
-    <div class="sec" style="display: none;">
-      <h2>Research</h2>
-    </div>
-
-	  
-  </div>
-</main>
-          
-     
-     
-<footer>
-  <table class="footertable"> <tr>
-	 <td class="footertd"><span id="Tick" title="Tick">0</span></td>
-	 <td class="footertd"><span id="Time" title="Time of Day">Morning</span></td>
-	 <td class="footertd"<span id="Weather"  title="Weather">Sunny</span></td>
-  </tr></table>
-  <p class="buttons">
-	  <button onclick="ShowModal('savegame')">Manage Save</button>
-	  <button onclick="ShowModal('settings')">Settings</button>
-	  <button onclick="tooglepause()" id="Pause"">Pause</button>
-  </piv>
-
-</footer>
-
-<div id="settings" class="modal">
-  <div class="modal-content">
-	<h1>Settings</h1>
-    <table>
-		<tr>
-			<td>Decimal Seperator</td>
-			<td><input type="text" maxlength="1" id="DecimalPoint" onchange="saveSettings()"></input></td>
-		</tr>
-		<tr>
-			<td>Touasand Separator</td>
-			<td><input type="text" maxlength="1" id="TousandPoint" onchange="saveSettings()"></input></td>
-		</tr>
-		<tr>
-			<td>Currency Format</td>
-			<td width="50px"><input type="text" maxlength="3" id="Currency" onchange="saveSettings()"></input></td>
-		</tr>
-		<tr>
-			<td>Example</td>
-			<td id='FormatExample' width="100px"></td>
-		</tr>
-	</table>
-    
-	<p style="text-align:center">
-		<button onclick="closeModal('settings')">Close</button>
-	</p>
-  </div>
-</div>
-
-<div id="savegame" class="modal">
-  <div class="modal-content">
-	  <h1>Manage Savegame</h1>
-	  <p style="text-align:center">
-		<button onclick="exportSave()">Export Savegame</button>
-	  </p>
-	  <p style="text-align:center">
-		<button class="btn-upload">Import Savegame</button>
-		<input type="file" id="SaveFile"  onchange="importSave(this)" />
-	  </p>
-	  <p style="text-align:center">
-		<button onclick="DeleteSave()">Delete Save</button>
-	  </p>
-	  <p style="text-align:center">
-		<button onclick="closeModal('savegame')">Close</button>
-	  </p>
-  </div>
-</div>
-</div>
-</body>
+			</footer>
+			<div id="settings" class="modal">
+				<div class="modal-content">
+					<h1>Settings</h1>
+					<table>
+						<tbody>
+							<tr>
+								<td>Decimal Seperator</td>
+								<td>
+									<input type="text" maxlength="1" id="DecimalPoint" onchange="saveSettings()">
+								</td>
+							</tr>
+							<tr>
+								<td>Touasand Separator</td>
+								<td>
+									<input type="text" maxlength="1" id="TousandPoint" onchange="saveSettings()">
+								</td>
+							</tr>
+							<tr>
+								<td>Currency Format</td>
+								<td width="50px">
+									<input type="text" maxlength="3" id="Currency" onchange="saveSettings()">
+								</td>
+							</tr>
+							<tr>
+								<td>Example</td>
+								<td id="FormatExample" width="100px"></td>
+							</tr>
+						</tbody>
+					</table>
+					<p style="text-align:center">
+						<button onclick="closeModal('settings')">Close</button>
+					</p>
+				</div>
+			</div>
+			<div id="savegame" class="modal">
+				<div class="modal-content">
+					<h1>Manage Savegame</h1>
+					<p style="text-align:center">
+						<button onclick="exportSave()">Export Savegame</button>
+					</p>
+					<p style="text-align:center">
+						<button class="btn-upload">Import Savegame</button>
+						<input type="file" id="SaveFile" onchange="importSave(this)">
+					</p>
+					<p style="text-align:center">
+						<button onclick="DeleteSave()">Delete Save</button>
+					</p>
+					<p style="text-align:center">
+						<button onclick="closeModal('savegame')">Close</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

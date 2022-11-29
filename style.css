@@ -1,260 +1,228 @@
 html, body {
-  font-family: 'Consolas', 'Courier New', Courier, monospace;
-  color:aliceblue;
-  font-size:0.9em;
-  margin:0;
-  padding:0;
-  height:100vh;
-  overflow-x:hover;
-  overflow-y:auto;
-  background-image: linear-gradient(300deg, rgb(45, 101, 147), black); 
+	font-family: "Consolas", "Courier New", Courier, monospace;
+	color: rgba(240, 248, 255, 1);
+	font-size: 0.9em;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	overflow-y: auto;
+	background-image: linear-gradient(300deg, rgba(45, 101, 147, 1), rgba(0, 0, 0, 1));
 }
 
 header {
-  width: 97%;
-  margin: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  padding-top:0px;
-  backdrop-filter: blur(20px);
-  background-color: rgba(65, 121, 167,.4);
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgb(45, 101, 147,.5);
+	width: 97%;
+	margin: 10px;
+	padding: 0 5px;
+	background-color: rgba(65, 121, 167, 0.4);
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px rgba(45, 101, 147, 0.5);
 }
 
 main {
-  /*backdrop-filter: blur(20px);
-  background-color: rgba(65, 121, 167,.2);*/
-  border-radius: 0px;
-  width:97%;
-  padding: 10px;
-  margin:0px;
-  display: grid;
-  grid-gap: 10px;  /* Simply adjust this value !*/
-  grid-template-columns: repeat(3, 1fr); /* OR grid-template-columns: 1fr 1fr 1fr;*/
-  grid-auto-rows: 1fr;
-  overflow-y:auto;
-  overflow-x:hidden;
-  /*box-shadow: 2px 2px 10px rgb(45, 101, 147);*/
+	border-radius: 0;
+	width: 97%;
+	padding: 10px;
+	margin: 0;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: 1fr;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 footer {
-  width: 97%;
-  margin: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 0px;
-  padding-top:0px;
-  backdrop-filter: blur(20px);
-  background-color: rgba(65, 121, 167,.4);
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgb(45, 101, 147,.5);
-  position: fixed;
-  text-aling:center;
-  bottom: 0;
+	width: 97%;
+	margin: 10px;
+	padding: 0 5px;
+	background-color: rgba(65, 121, 167, 0.4);
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px rgba(45, 101, 147, 0.5);
+	position: fixed;
+	bottom: 0;
 }
 
 div.col {
-  float: center;
-  width: 98%;
-  margin: 5px;
-  padding: 0px;
+	width: 98%;
+	margin: 5px;
+	padding: 0;
 }
 
-
 h1 {
-  padding-top:10px;
-  padding-bottom:10px;
-  width: 100%;
-  text-align:center;
-  vertical-align: middle;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
 }
 
 div.sec {
-  float: left;
-  width: 100%;
-  margin: 0px;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  backdrop-filter: blur(20px);
-  background-color: rgba(65, 121, 167,.4);
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgb(45, 101, 147,.5);
-  background-image: linear-gradient(0deg, rgba(45, 101, 147,.1), rgba(65, 121, 167,.6)); 
+	float: left;
+	width: 100%;
+	margin: 0 0 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	background-color: rgba(65, 121, 167, 0.4);
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px rgba(45, 101, 147, 0.5);
+	background-image: linear-gradient(0deg, rgba(45, 101, 147, 0.1), rgba(65, 121, 167, 0.6));
 }
 
-
 .bigint {
-  border:0px;
-  width: 80%;
-  height:100%;
-  text-align: right;
-  margin-right:12pt;
-  vertical-align: middle;
+	border: 0;
+	width: 80%;
+	height: 100%;
+	text-align: right;
+	margin-right: 12pt;
+	vertical-align: middle;
 }
 
 .int {
-  border:0px;
-  width: 40%;
-  height:100%;
-  text-align: right;
-  margin-right:12pt;
-  vertical-align: middle;
+	border: 0;
+	width: 40%;
+	height: 100%;
+	text-align: right;
+	margin-right: 12pt;
+	vertical-align: middle;
 }
 
 h2 {
-  margin-top: 3px;
-  margin-bottom: 1px;
-  text-align: center;
+	margin-top: 3px;
+	margin-bottom: 1px;
+	text-align: center;
 }
 
-ul 
-{
+ul {
 	list-style-type: none;
-	padding-left: 0px;
-    margin: auto;
-    margin-top:5px;
-    margin-botton:5px;
-    text-align: auto;
-    vertical-align: middle;
+	padding-left: 0;
+	margin: 5px auto auto;
+	vertical-align: middle;
 }
 
 li {
-    vertical-align: middle;;
+	vertical-align: middle;
 }
 
-ul li span { 
+ul li span {
 	float: left;
-  text-align:auto;
-  vertical-align: middle;
+	vertical-align: middle;
 }
 
 p {
-  margin-left:auto;
-  min-height:0px;
-  text-align: center;
-  display: inline-block;
-  position: relative;
+	margin-left: auto;
+	min-height: 0;
+	text-align: center;
+	display: inline-block;
+	position: relative;
 }
 
 p.hidden {
-  height:0px;
-  margin:0px;
+	height: 0;
+	margin: 0;
 }
 
 .buttons {
-  margin:0 auto;
-  display: table;
-  padding:4px;
+	margin: 0 auto;
+	display: table;
+	padding: 4px;
 }
 
 button {
-  margin:4px;
-
-  padding:4px;
-  padding-left:6px;
-  padding-right:6px;
-  background-color: #335599;
-  color:lightblue;
-  jbox-shadow: 2px 2px 2px #335599;
-  border-color: #335599;
-  border-radius: 15px;
-  border-width: 2px;
-  font-family: 'Consolas', 'Courier New', Courier, monospace;
-  font-size: 0.8em;
-  background-image: linear-gradient(300deg, rgb(45, 101, 147), #113366); 
+	margin: 4px;
+	padding: 4px 6px;
+	background-color: rgba(51, 85, 153, 1);
+	color: rgba(173, 216, 230, 1);
+	border-color: rgba(51, 85, 153, 1);
+	border-radius: 15px;
+	border-width: 2px;
+	font-family: "Consolas", "Courier New", Courier, monospace;
+	font-size: 0.8em;
+	background-image: linear-gradient(300deg, rgba(45, 101, 147, 1), rgba(17, 51, 102, 1));
 }
+
 button.small {
-  font-size: 1.2em;
-  font-weight:bold;
-  padding:0px;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 0;
 }
 
-input[type=file] {
-  left: 0;
-  top: 0;
-  opacity: 0;
-  position: absolute;
-  font-size: 90px;
+input[type="file"] {
+	left: 0;
+	top: 0;
+	opacity: 0;
+	position: absolute;
+	font-size: 90px;
 }
 
-button:hover{
-  color:aliceblue;
-  border-color:lightblue;
-  box-shadow: 0px 5px 15px #335599;
+button:hover {
+	color: rgba(240, 248, 255, 1);
+	border-color: rgba(173, 216, 230, 1);
+	box-shadow: 0 5px 15px rgba(51, 85, 153, 1);
 }
 
 button:active {
-  transform:translateY(2px);
-  background-image: linear-gradient(300deg,#113366 rgb(45, 101, 147)); 
+	transform: translateY(2px);
 }
 
 input {
-  background-color: rgb(45, 101, 147);
-  color: aliceblue;
-  font-family: 'Consolas', 'Courier New', Courier, monospace;
-  border:1px;
-  text-align:right;
-  width:100%;
+	background-color: rgba(45, 101, 147, 1);
+	color: rgba(240, 248, 255, 1);
+	font-family: "Consolas", "Courier New", Courier, monospace;
+	border: 1px;
+	text-align: right;
+	width: 100%;
 }
 
 th, td {
-  border: 1px solid steelblue;
-  border-collapse: collapse;
-  padding: 5px;
-  min-width:50px;
-  text-align:right;
-    border-radius: 5px;
+	border: 1px solid rgba(70, 130, 180, 1);
+	border-collapse: collapse;
+	padding: 5px;
+	min-width: 50px;
+	text-align: right;
+	border-radius: 5px;
 }
 
 .footertd {
-  text-align:center;
-  width:33%;
+	text-align: center;
+	width: 33%;
 }
 
 table {
-  margin: auto;
-  margin-bottom:8px;
-  margin-top:5px;
-  border: 2px solid steelblue;
-  min-width:70%;
-  padding: 1px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 2px rgba(65, 121, 167,.2);
+	margin: 5px auto 8px;
+	border: 2px solid rgba(70, 130, 180, 1);
+	min-width: 70%;
+	padding: 1px;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(65, 121, 167, 0.2);
 }
 
 .footertable {
-  margin-top:8px;
-  margin-bottom:0px;
-  min-width:50%;
+	margin-top: 8px;
+	margin-bottom: 0;
+	min-width: 50%;
 }
 
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(65, 121, 167,0); /* Fallback color */
-  background-color: rgba(65, 121, 167,0.8); /* Black w/ opacity */
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(65, 121, 167, 0.8);
 }
 
-/* Modal Content/Box */
 .modal-content {
-  background-color: #335599;
-  background-image: radial-gradient(rgb(45, 101, 147), #113366); 
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 0px solid #888;
-  max-width: 50%; /* Could be more or less, depending on screen size */
-  width: 30%;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgb(45, 101, 147,.5);
+	background-color: rgba(51, 85, 153, 1);
+	background-image: radial-gradient(rgba(45, 101, 147, 1), rgba(17, 51, 102, 1));
+	margin: 15% auto;
+	padding: 20px;
+	border: 0 solid rgba(136, 136, 136, 1);
+	max-width: 50%;
+	width: 30%;
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px rgba(45, 101, 147, 0.5);
 }
