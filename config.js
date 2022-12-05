@@ -44,6 +44,9 @@ const limits = [{
     LimitLow: 15000n,
     Show: 'BuySteelbar100'
 }, {
+    LimitLow: 20000n,
+    Show: 'buyGarage'
+}, {
     LimitLow: 25000n,
     Other: {
         AutoPress: 100n
@@ -72,15 +75,15 @@ const limits = [{
 const Storage = {
     Garage: {
         Capacity: 1000000n,
-        Cost: 5000n
+        Cost: 500000n,
     },
     WarehouseSmall: {
         Capacity: 50000000n,
-        Cost: 100000n
+        Cost: 10000000n,
     },
     WarehouseMedium: {
         Capacity: 1000000000n,
-        Cost: 5000000n
+        Cost: 5000000000n
     }
 };
 

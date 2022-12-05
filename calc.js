@@ -28,9 +28,13 @@ function makeNail(count = 0n, power = false) {
 
 }
 
-function buyGarage(count = 1) {
-    save.StorageGarage += BigInt(count);
-    updateView();
+function buyGarage() {
+    if (save.Money < Storage.Garage.Cost) {
+        error('Not enough Money!');
+        return;
+    }
+    save.Money -= Storage.Garage.Cost;
+    save.StorageGarage++;
 }
 
 function buySteelbar(count = 1n) {
@@ -161,7 +165,7 @@ function hireSalesRep(count = 1n, cost = getSalesRepCost()) {
     }
     save.Money -= cost;
     save.SalesReps++;
-    save.SalesRepsActive = save.SalesReps++;
+    save.SalesRepsActive = save.SalesReps;
 	console.log('Salesrep hired');
 }
 
