@@ -91,7 +91,7 @@ const probs = {
     PriceChangeProb: 0.3,
     PriceIncreaseChance: 0.5001,
     BaseSalesprice: 500n,
-    AutoPressPriceFactor: 108n, // 25%
+    AutoPressPriceFactor: 104n, // 25%
     SalesRepHireBaseCost: 100000n, // 1000
     SalesRepHireCostFactor: 108n,
     SalesRepTickCost: 66n, // 66 Cent pro tick
