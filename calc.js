@@ -235,7 +235,7 @@ function buySolar(count = 1n) {
 function buyBattery(count = 1n) {
     if (save.Money < count * probs.BatteryCost) return;
     save.Money -= count * probs.BatteryCost;
-    save.PowerStoreCap += count;
+    save.PowerStoreCap += count*100n;
     console.log('Bought Battery');
 }
 
