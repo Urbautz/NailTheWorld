@@ -11,7 +11,6 @@ function makeNail(count = 0n, power = false) {
     let nailstomake = BigInt(count);
     if (getStorageCap() < save.SteelbarsByK + save.NailsInStorage + nailstomake) {
         error("Warehouse is full");
-        nailstomake = SteelbarsByK + save.NailsInStorage + nailstomake - getStorageCap();
     }
     if (save.SteelbarsByK < nailstomake) return error("Not enough steel!");
     else {
@@ -35,6 +34,7 @@ function buyGarage() {
     }
     save.Money -= Storage.Garage.Cost;
     save.StorageGarage++;
+    console.log('Bouoght Garage');
 }
 
 function buySteelbar(count = 1n) {

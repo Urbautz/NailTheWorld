@@ -103,6 +103,16 @@ function updateView() {
     let storagecap = getStorageCap();
     document.getElementById('NailsInStoragePercent').innerHTML = save.NailsInStorage * 100n / storagecap;
     document.getElementById('SteelbarsPercent').innerHTML = save.SteelbarsByK * 100n / storagecap;
+    if((save.SteelbarsByK + save.NailsInStorage) * 100n / storagecap > 90) {
+        document.getElementById('StorageTotal').classList.add('warn');
+    } else {
+        document.getElementById('StorageTotal').classList.remove('warn');
+    }
+    if((save.NailsPerTick * 60n) > save.SteelbarsByK) {
+        document.getElementById('SteelbarsNo').classList.add('warn');
+    } else {
+        document.getElementById('SteelbarsNo').classList.remove('warn');
+    }
     document.getElementById('StorageTotal').innerHTML = (save.SteelbarsByK + save.NailsInStorage) * 100n / storagecap;
     document.getElementById('StorageCap').innerHTML = formatBigInt(storagecap);
 
@@ -124,7 +134,16 @@ function updateView() {
     document.getElementById('PowerProduced').innerHTML = formatBigInt(save.PowerProduced, 0, settings.PowerFormat);
     document.getElementById('PowerStored').innerHTML = formatBigInt(save.PowerStored, 0, settings.PowerFormat);
     document.getElementById('PowerStoreCap').innerHTML = formatBigInt(save.PowerStoreCap, 0, settings.PowerFormat);
-
+    if(save.PowerConsumed > save.PowerProduced) {
+        document.getElementById('PowerProduced').classList.add('warn');
+    } else {
+        document.getElementById('PowerProduced').classList.remove('warn');
+    }
+    if(save.PowerStored < (save.PowerConsumed)) {
+        document.getElementById('PowerStored').classList.add('warn');
+    } else {
+        document.getElementById('PowerStored').classList.remove('warn');
+    }
 
     getSalesRepCost()
     console.log("did run updateView");
