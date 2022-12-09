@@ -100,6 +100,7 @@ function updateView() {
     document.getElementById('StorageGarageCount').innerHTML = formatBigInt(save.StorageGarage);
     document.getElementById('NailsInStorage').innerHTML = formatBigInt(save.NailsInStorage);
     document.getElementById('SteelbarsNo').innerHTML = formatBigInt(save.SteelbarsByK, 3);
+    document.getElementById('SteelBarCost').innerHTML = formatBigInt(save.SteelbarCost, 2, settings.Currency);
     let storagecap = getStorageCap();
     document.getElementById('NailsInStoragePercent').innerHTML = save.NailsInStorage * 100n / storagecap;
     document.getElementById('SteelbarsPercent').innerHTML = save.SteelbarsByK * 100n / storagecap;
