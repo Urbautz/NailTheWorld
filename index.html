@@ -62,10 +62,24 @@
 						<h2>Steelbars</h2>
 						<ul class="buttons">
 							<li>
-								<button id="BuySteelbar" onclick="buySteelbar(1n)">Buy Steelbar</button>
-								<button id="BuySteelbar100" onclick="buySteelbar(100n)" style="display: none;">Buy 100 Steelbars</button>
+
 							</li>
 						</ul>
+						<table>
+							<tr>
+								<th>What</th>
+								<th>Cost</th>
+								<th>Buy</th>
+							</tr>
+							<tr>
+								<td>Steelbars</td>
+								<td id="SteelBarCost">$ 1</td>
+								<td>
+									<button id="BuySteelbar" onclick="buySteelbar(1n)">+1</button>
+									<button id="BuySteelbar100" onclick="buySteelbar(100n)" style="display: none;">+100</button>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 				<div class="col">
@@ -134,7 +148,7 @@
 									<td colspan="2" style="text-align:center">
 										<div id="BuySolar" style="display: none; width: 100%;text-align:center" class="buttons">
 											<button onclick="buySolar()" title="$500">Buy Solar Panel</button>
-											<button id="BuyWindmill" onclick="buyWindmill()" title="$50000" style="display: none;">Buy Windmill</button>
+											<button id="BuyWindmill" onclick="buyWindMill()" title="$50000" style="display: none;">Buy Windmill</button>
 										</div>
 									</td>
 								</tr>

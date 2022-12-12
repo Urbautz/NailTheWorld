@@ -44,6 +44,9 @@ const limits = [{
     LimitLow: 15000n,
     Show: 'BuySteelbar100'
 }, {
+    LimitLow: 20000n,
+    Show: 'buyGarage'
+}, {
     LimitLow: 25000n,
     Other: {
         AutoPress: 100n
@@ -72,15 +75,15 @@ const limits = [{
 const Storage = {
     Garage: {
         Capacity: 1000000n,
-        Cost: 5000n
+        Cost: 500000n,
     },
     WarehouseSmall: {
         Capacity: 50000000n,
-        Cost: 100000n
+        Cost: 10000000n,
     },
     WarehouseMedium: {
         Capacity: 1000000000n,
-        Cost: 5000000n
+        Cost: 5000000000n
     }
 };
 
@@ -88,15 +91,17 @@ const probs = {
     PriceChangeProb: 0.3,
     PriceIncreaseChance: 0.5001,
     BaseSalesprice: 500n,
-    AutoPressPriceFactor: 108n, // 25%
+    AutoPressPriceFactor: 104n, // 25%
     SalesRepHireBaseCost: 100000n, // 1000
     SalesRepHireCostFactor: 108n,
     SalesRepTickCost: 66n, // 66 Cent pro tick
     PowerConAutoPress: 3n, // 3KWt
     PowerCostBase: 240,
     SolarCost: 50000n,
+    SolarProduction: 1000n,
     BatteryCost: 750000n,
     WindMillCost: 2500000n,
+    WindMillProduction: 7500n,
     WeatherChangeProb: 0.2
 };
 
