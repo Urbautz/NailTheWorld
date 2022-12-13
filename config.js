@@ -138,19 +138,19 @@ const time = [{
 }, ]
 
 const weather = [{
-    Name: 'Sunny',
+    Name: 'Clear Sky',
     SolarOut: 100n,
     WindOut: BigInt(getRandom(0, 50))
 }, {
-    Name: 'Sunny',
+    Name: 'Clear Sky',
     SolarOut: 100n,
     WindOut: BigInt(getRandom(0, 50))
 }, {
-    Name: 'Sunny',
+    Name: 'Clear Sky',
     SolarOut: 100n,
     WindOut: BigInt(getRandom(0, 50))
 }, {
-    Name: 'Sunny',
+    Name: 'Clear Sky',
     SolarOut: 100n,
     WindOut: BigInt(getRandom(0, 50))
 }, {
@@ -185,4 +185,4 @@ const weather = [{
     Name: 'Thundstorm',
     SolarOut: 0n,
     WindOut: 100n
-}, ]
+}, ];
